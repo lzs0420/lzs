@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+body{ background:url(../img/body.jpg);}
+body,span,object,iframe,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,
+ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;font-size:100%;}
+h1,h2,h3,h4,h5,h6{ margin:0; padding:0;}
+body{line-height:1; color:#333; }
+section,article,aside,header,footer,nav,dialog,figure{display:block;}
+figure{margin:0;}
+ul, ol,li { list-style:none outside; }
+a { text-decoration: none;color:#333;outline:0 none; }
+a:hover { color:#2a9d89; text-decoration:none;}
+i,em{font-style:normal;}
+abbr[title], acronym[title] { border-bottom: 1px dotted; cursor: help;}
+fieldset, img { border: none; }
+body,button, input, select, textarea { font: 12px/1.5 Tahoma, 'Droid Sans', 'Hiragino Sans GB','Microsoft YaHei';}
+button, input, select, textarea { font-size: 100%; margin:0; padding:0;outline: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+hr { border: none; height:1px; background-color:#e9e9e9; }
+textarea ,input{ resize: none;outline: none;}
+textarea{ resize: none;-webkit-appearance: none;border:1px solid #ccc;}
+b{ font-weight:normal;}
+del { font-family:Arial;}
+img { vertical-align:middle;}
+.clearfix:after,.header:after,.footer:after,.add-role-box:after,.content:after,.user-home:after,.search-home-box:after,.search-classify:after,
+.dota-wrap:after,.card-hero:after,.forte-list:after,.ranking-con:after,.moba-game-box:after,.second-nav-box .second-nav:after,.dota-part-box:after,
+.statistics-box:after,.news-footer-box:after,.footer-item-box:after,.contest-txt .contest-pic-txt:after,.teammate-evaluate-box:after,
+.news-nav-box:after,.news-nav-box .news-nav:after,.news-nav-list:after{content:"\20";display: block;height: 0;visibility: hidden;clear: both;}
+.clearfix,.header,.footer,.add-role-box,.content,.user-home,.search-home-box,.search-classify,.dota-wrap,.card-hero,.forte-list,.ranking-con,
+.moba-game-box,.second-nav-box .second-nav,.dota-part-box,.statistics-box,.news-footer-box,.footer-item-box,.contest-txt .contest-pic-txt,
+.teammate-evaluate-box,.news-nav-box,.news-nav-list,.news-nav-box .news-nav{ zoom:1;}
+.Hide{ display:none !important;}
+
+/* 导航 */
+.header-box{  background-color:#2e2e2e;}
+.header{ width:1000px; margin:auto; height:55px; position:relative;}
+.header .lyg-logo{ float:left; width:95px; height:64px; background:url(../img/lyg-logo.png) no-repeat;}
+.header .lyg-logo a{ float:left; width:95px; height:64px;}
+.nav-list{ float:left; padding:16px 0 0 30px; position:relative; zoom:1; width:600px;}
+.nav-list .nav-a{ float:left; height:32px; position:relative; margin-right:40px; color:#ccc; font-size:18px;}
+.nav-list .nav-a:hover{ color:#269d88;}
+.nav-list .active{ color:#269d88}
+.nav-list .active .second-arrow{ display:block;}
+.layer-nav{ background-color:#ececec; padding:7px 0px; position:absolute; top:55px; left:20px;}
+.second-nav{ margin:0 15px; font-weight: bold;}
+.second-nav:hover{ color:#b82b00;}
+.second-arrow{ width:16px; height:6px; position:absolute; top:39px; left:13px; display:none; background:url(../img/second-arrow.png) no-repeat;}
+.cindy{ position:absolute; color:#269d88; font-size:14px; top:18px; right:0; padding-right:20px;}
+.cindy:hover{ color:#269d88; text-decoration:underline;}
+.cindy .cindy-arrow-down,.cindy .cindy-arrow-up{display:inline-block;width:0;height:0;overflow:hidden;line-height:0;font-size:0;vertical-align:middle;border-top:7px solid #299d88;border-bottom:0 none;border-left:7px solid transparent;border-right:7px solid transparent;_color:#ff3458;_filter:chroma(color=#ff3458); position:absolute; top:10px; right:0;}
+.cindy .cindy-arrow-up{border-bottom:7px solid #299d88;border-top:0 none;border-left:7px solid transparent;border-right:7px solid transparent;top:9px; }
+
+.head-search{ position:absolute; top:20px; width:215px; right:100px;}
+.head-search .head-search-input{ height:19px; background-color:#535353; float:left; color:#fff; -moz-border-radius:5px 0 0 5px; -webkit-border-radius:5px 0 0 5px; border-radius:5px 0 0 5px; padding:5px 10px 5px; width:150px; border:0;}
+.btn-head-search{ width:29px; height:29px; background:url(../img/btn-head-search-.png) no-repeat 2px 0; float:left; background-color:#209e88; cursor:pointer; border:0;-moz-border-radius:0 5px 5px 0;-webkit-border-radius:0 5px 5px 0; border-radius:0 5px 5px 0;}
+.head-search .col-del{ font-size:13px; color:#999}
+.nav-list .nav-a .head-news{ position:relative; top:-5px; margin-left:5px;}
+
+/* 二级导航 */
+.header-nav-box{ background-color:#299d88; height:30px;}
+.header-nav-box .second-head-nav{ width:1000px; margin:auto;}
+.header-nav-box .second-head-nav-list{ padding:4px 0 0 250px;}
+.header-nav-box .second-head-nav-list .cond-nav{ margin-right:40px; font-size:14px; color:#222}
+.header-nav-box .second-head-nav-list .cond-nav:hover{ color:#fff;}
+.head-news{ background:url(../img/hd-news.png) no-repeat; width:26px; height:17px; display:inline-block; *display:inine; overflow:hidden; zoom:1; margin:0 0 0 2px; vertical-align:-2px;*vertical-align:0px;}
+
+/* 导航右边 */
+.news-function{ position:absolute; top:12px; right:0;}
+.news-function .news-login{ float:right;}
+.news-function .news-login .login-txt{ margin-left:20px;}
+.news-function .funct-da{ background:url(../img/index-news/head-da.png) no-repeat; width:196px; height:13px; float:right; margin:3px 80px}
+
+.header-news{ padding-bottom:30px; overflow:hidden; zoom:1;}
+.header-news h1{ background:url(../img/news-logo.png) no-repeat; width:182px; height:72px; float:left; margin:15px 35px 0 0; _display:inline;}
+.header-news .hews-icon{ float:left; margin:45px 30px 0 0; background:url(../img/news-index-t1.png) no-repeat; width:257px; height:19px;  _display:inline;}
+.header-news .header-search{ float:left; width:493px;}
+.header-search .search-tit{ text-align:right; padding-bottom:8px;}
+.header-search .search-tit .tit{ margin-left:30px; }
+.header-search .search-input-box{ background:url(../img/news-search-bg.png) no-repeat; width:483px; height:45px; padding:5px; position:relative;}
+.header-search .search-input-box input{ width:410px; float:left; padding:20px 10px 7px; height:18px; font-size:16px; color:#999; border:0;}
+.header-search .search-input-box .search-btn{ position:absolute; right:0;top:1px; width:50px; height:50px;}
+.search-tips{ text-align:right; padding-top:10px; overflow:hidden; zoom:1;}
+.search-tips .sear-txt{ float:right; margin-left:20px;}
+.search-tips .search-icon{ width:10px; height:9px; display:inline-block; *display:inline; overflow:hidden; zoom:1; vertical-align:middle; margin-left:5px;}
+.search-tips .search-d{ background-position:-24px 0;}
+	
+/* 布局 */
+.news-nav-box .news-nav,.header-news{ width:1000px; margin:auto;}
+/* 新导航 */
+.news-nav-box { padding-bottom:45px;}
+.news-nav-box .news-nav{ position:relative; border-bottom:2px solid #d9d9d9;}
+.news-nav .news-nav-list li{ position:relative; float:left;}
+.news-nav .news-nav-list li .news-nav-tag{ float:left; padding:12px 0 10px; margin-right:30px;}
+.news-nav .news-nav-list li .active{ color:#209e89;}
+
+.news-index-wrap:after{content:"\20";display: block;height: 0;visibility: hidden;clear: both;}
+.news-index-wrap{ zoom:1;}
+.news-index-wrap{ width:1000px; margin:auto;}
+
+/* 模块 */
+.index-mode{ padding-bottom:20px; overflow:hidden;}
+.index-mode .hd{ background:url(../img/line.png) repeat-x 0 9px; text-align:center; position:relative; padding-bottom:16px; overflow:hidden;}
+.index-mode .hd em{ background-color:#ececec; padding:0 10px; color:#999;}
+.index-mode .hd .tit{ padding-right:5px; float:left; margin-top:-1px; background-color:#ececec; color:#666;}
+.index-mode .hd .more{ background-color:#ececec; position:absolute; right:0; top:-1px; padding-left:5px; color:#2a9d89;}
+.index-conter{ overflow:hidden; zoom:1;}
