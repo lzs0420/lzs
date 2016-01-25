@@ -753,7 +753,7 @@ public class StringUtils {
 			return new String[0];
 		}
 
-		ArrayList wordList = new ArrayList();
+		ArrayList<String> wordList = new ArrayList<String>();
 		BreakIterator boundary = BreakIterator.getWordInstance();
 		boundary.setText(text);
 		int start = 0;
@@ -1036,13 +1036,13 @@ public class StringUtils {
 		return lb_IsExpression;
 	}
 
-	public static String[] fromVector(Vector v) {
+	public static String[] fromVector(Vector<String> v) {
 		String ls_Return[] = new String[v.size()];
 		for (int i = 0; i < ls_Return.length; i++) {
 			if (v.get(i) == null) {
 				ls_Return[i] = null;
 			} else {
-				ls_Return[i] = (String) v.get(i);
+				ls_Return[i] = v.get(i);
 			}
 		}
 		return ls_Return;
@@ -1152,7 +1152,7 @@ public class StringUtils {
 			Properties lp_Values = parseOneProperties(valueList);
 			if (lp_Values != null && key != null) {
 				// 定位到和 key 相同的关键字
-				Enumeration le_Keys = lp_Values.propertyNames();
+				Enumeration<?> le_Keys = lp_Values.propertyNames();
 				while (le_Keys.hasMoreElements()) {
 					String ls_Key = (String) le_Keys.nextElement();
 					if (ls_Key.equalsIgnoreCase(key)) {
@@ -1287,7 +1287,7 @@ public class StringUtils {
 			else
 				ls_ValueList = key + "=" + ls_Value;
 		} else {
-			Enumeration le_Keys = lp_Values.propertyNames();
+			Enumeration<?> le_Keys = lp_Values.propertyNames();
 			boolean lb_Setted = false;
 			while (le_Keys.hasMoreElements()) {
 				String ls_Key = (String) le_Keys.nextElement();
@@ -1617,7 +1617,7 @@ public class StringUtils {
 		else if (baseObject instanceof String)
 			return contains((String) baseObject, "" + matchObject);
 		else if (baseObject instanceof Collection) {
-			return ((Collection) baseObject).contains(matchObject);
+			return ((Collection<?>) baseObject).contains(matchObject);
 		} else
 			return false;
 	}
@@ -1656,9 +1656,9 @@ public class StringUtils {
 		if (object == null)
 			return 0;
 		else if (object instanceof Collection)
-			return ((Collection) object).size();
+			return ((Collection<?>) object).size();
 		else if (object instanceof Map)
-			return ((Map) object).size();
+			return ((Map<?, ?>) object).size();
 		else if (object instanceof Object[])
 			return ((Object[]) object).length;
 		else if (object instanceof int[])
@@ -2007,7 +2007,7 @@ public class StringUtils {
 
 	// 获取一个汉字/字母的Char值
 	public static int getCharCode(String s) {
-		if (s == null && s.equals(""))
+		if (s == null && "".equals(s))
 			return -1; // 保护代码
 		byte[] b = s.getBytes();
 		int value = 0;

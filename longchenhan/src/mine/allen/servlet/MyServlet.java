@@ -2,7 +2,6 @@ package mine.allen.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +43,9 @@ public class MyServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path=request.getServletPath()+request.getPathInfo()==null?"":request.getPathInfo();
+        String servletPath=request.getServletPath();
+        String pathInfo=request.getPathInfo()==null?"":request.getPathInfo();
+        String path=servletPath+pathInfo;
         //访问sb页面，人数+1
         if(path.startsWith("/sb")){
             String sbnum = "1";
@@ -54,7 +55,7 @@ public class MyServlet extends HttpServlet {
 				e.printStackTrace();
 			}
             request.setAttribute("sbnum", sbnum);
-            request.getRequestDispatcher("MyServletJsp/sbnum.jsp").forward(request, response);
+            request.getRequestDispatcher("/MyServletJsp/sbnum.jsp").forward(request, response);
         }
     }
 	

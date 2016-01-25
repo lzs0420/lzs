@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -140,6 +141,18 @@ public class StringL {
 	     String t = "";
 	     while (st.hasMoreElements()) t = t + st.nextElement();
 	     return t;
+	}
+	
+	/**
+	 * toString
+	 * @param s
+	 * @return
+	 */
+	public static String toString(Object s){
+		String t = null;
+	    if(s == null) t="";
+	    else t = s.toString();
+	    return t;
 	}
 	
 	/**
@@ -287,7 +300,376 @@ public class StringL {
 	   if (sList.length() > 0) sList = sList.substring(sDelim.length());
 	   return sList;
 	 }
-	
+
+	 /**
+	  * date转换成string，间隔符sFormat <br>yyyy<b>sFormat</b>MM<b>sFormat</b>dd
+	  * @deprecated
+	  * @param dateDate
+	  * @param sFormat
+	  * @return String
+	  */
+	 public static String date2String(java.util.Date dateDate, String sFormat)
+	 {
+	   String sToday = new java.sql.Date(dateDate.getTime()).toString();
+	   sToday = replace(sToday, "-", sFormat);
+	   return sToday;
+	 }
+	 
+	 /**
+	  * 已code编码data字符串
+	  * @param data
+	  * @param code
+	  * @return String[]
+	  */
+	 public static String[] encodingStrings(String[] data, String code)
+	 {
+	   int length = data.length;
+	   String[] result = new String[length];
+	   try
+	   {
+	     for (int i = 0; i < length; i++) {
+	       result[i] = new String(data[i].getBytes(code));
+	     }
+	   }
+	   catch (Exception ex) {
+	     ex.printStackTrace();
+	   }
+	   
+	   return result;
+	 }
+
+	 /**
+	  * key=value*****delim<br>返回value
+	  * @param data
+	  * @param key
+	  * @param delim
+	  * @return String
+	  */
+	 public static String getProfileString(String data, String key, String delim)
+	 {
+	   if (data == null) { return "";
+	   }
+	   int curIndex = data.indexOf(key + "=");
+	   if (curIndex < 0) { return "";
+	   }
+	   int endIndex = (data + delim).indexOf(delim, curIndex);
+	   if (endIndex < 0) { return "";
+	   }
+	   int beginIndex = data.indexOf("=", curIndex);
+	   if (beginIndex < 0) { return "";
+	   }
+	   return data.substring(beginIndex + 1, endIndex);
+	 }
+	 
+	 /**
+	  * key=value*****;<br>返回value<br>默认分号结尾
+	  * @param data
+	  * @param key
+	  * @return
+	  */
+	 public static String getProfileString(String data, String key)
+	 {
+	   return getProfileString(data, key, ";");
+	 }
+	 
+	 /**
+	  * 返回data以key1为分隔符的字符串数组中 第order-1个和第order个key2之间的字符串 组成的数组
+	  * toStringArray("12131;14151;" , ";" , "1" , 2)<br>返回[2][4]
+	  * @param data
+	  * @param key1
+	  * @param key2
+	  * @param order
+	  * @return
+	  */
+	 public static String[] toStringArray(String data, String key1, String key2, int order){
+	   if ((key1 == null) || (key1.equals(""))) key1 = " ";
+	   if ((key2 == null) || (key2.equals(""))) { key2 = " ";
+	   }
+	   int iCount = getSeparateSum(data, key1);
+	   String[] sArray = new String[iCount];
+	   for (int i = 1; i <= iCount; i++)
+	   {
+	     String sTemp = getSeparate(data, key1, i);
+	     sArray[(i - 1)] = getSeparate(sTemp, key2, order);
+	   }
+	   return sArray;
+	 }
+	 
+	 /**
+	  * 是否相似<br>isLike(Stringxxx,String)返回true
+	  * @param source
+	  * @param destination
+	  * @return
+	  */
+	 public static boolean isLike(String source, String destination){
+	   int iSourceLength = source.length();
+	   int iDesLength = destination.length();
+	   if (replace(destination, "%", "").length() > iSourceLength) {
+	     return false;
+	   }
+	   int j = 0;
+	   int i = 0;
+	   boolean isLike = true;
+	   char chSource = ' ';
+	   char chDes = ' ';
+	   
+	   while (((i < iSourceLength) || (j < iDesLength)) && (isLike)){
+	     if (i < iSourceLength) chSource = source.charAt(i);
+	     if (j < iDesLength) { chDes = destination.charAt(j);
+	     }
+	     if (chSource == chDes) {
+	       i++;
+	       j++;
+	     }
+	     else if (chDes == '_'){
+	       if ((j < iDesLength) && (i < iSourceLength)) {
+	         return isLike(source.substring(i + 1), destination.substring(j + 1));
+	       }
+	       isLike = false;
+	     }
+	     else if (chDes == '%'){
+	       int underLines = 0;
+	       j++;
+	       while (((chDes == '_') || (chDes == '%')) && (j < iDesLength)) {
+	         if (chDes == '_') underLines++;
+	         chDes = destination.charAt(j);
+	         j++;
+	       }
+	       j--;
+	       if (chDes != '%'){
+	         boolean subLike = false;
+	         i = source.indexOf(chDes, i + underLines);
+	         
+	         while ((i >= 0) && (!subLike)) {
+	           subLike = isLike(source.substring(i), destination.substring(j));
+	           i = source.indexOf(chDes, i + 1);
+	         }
+	         return subLike;
+	       }
+	       i++;
+	       j = iDesLength;
+	     }else{
+	       isLike = false;
+	     }
+	   }
+	   return isLike;
+	 }
+	 
+	 /**
+	  * yyyy分隔符MM格式字符串增加指定月数或年数
+	  * @param sAccountMonth
+	  * @param sType month或year
+	  * @param iStep 增加的月数或年数
+	  * @return
+	  */
+	 public static String getRelativeAccountMonth(String sAccountMonth, String sType, int iStep){
+	   String sYear = sAccountMonth.substring(0, 4);
+	   String sMonth = sAccountMonth.substring(5, 7);
+	   
+	   int iYear = Integer.valueOf(sYear).intValue();
+	   int iMonth = Integer.valueOf(sMonth).intValue();
+	   
+	   if (sType.equalsIgnoreCase("year"))
+	   {
+	     iYear += iStep;
+	   }
+	   else if (sType.equalsIgnoreCase("month"))
+	   {
+	     iYear += (iMonth + iStep) / 12;
+	     iMonth = (iMonth + iStep) % 12;
+	     if (iMonth <= 0)
+	     {
+	       iYear--;
+	       iMonth += 12;
+	     }
+	   }
+	   
+	   sYear = String.valueOf(iYear);
+	   sMonth = String.valueOf(iMonth);
+	   if (sMonth.length() == 1)
+	   {
+	     sMonth = "0" + sMonth;
+	   }
+	   
+	   return sYear + "/" + sMonth;
+	 }
+	 
+	 /**
+	  * double类型货币格式数字转换成大写中文字符串,自动取两位小数
+	  * @param doubleNum
+	  * @return
+	  */
+	 public static String numberToChinese(double doubleNum)
+	 {
+	   DecimalFormat df = new DecimalFormat("############0.00");
+	   String sNum = df.format(doubleNum);
+	   
+
+	   int pointPos = sNum.indexOf(".");
+	   
+	   if (sNum.substring(pointPos).compareTo(".00") == 0) {
+	     sNum = sNum.substring(0, pointPos);
+	   }
+	   String temp = "";
+	   String[] sBIT = new String[4];
+	   String[] sUNIT = new String[4];
+	   String[] sCents = new String[2];
+	   String sIntD = "";
+	   String sDecD = "";
+	   String NtoC = "";
+	   int iCount = 0;
+	   int lStartPos = 0;
+	   int iLength = 0;
+	   
+	   sBIT[0] = "";
+	   sBIT[1] = "拾";
+	   sBIT[2] = "佰";
+	   sBIT[3] = "仟";
+	   sUNIT[0] = "";
+	   sUNIT[1] = "万";
+	   sUNIT[2] = "亿";
+	   sUNIT[3] = "万";
+	   sCents[0] = "分";
+	   sCents[1] = "角";
+	   
+
+	   if ((sNum.compareTo("0") == 0) || (sNum.compareTo("0.0") == 0) || (sNum.compareTo("0.00") == 0))
+	   {
+	     NtoC = "零元整";
+	     return NtoC;
+	   }
+	   
+	   if (sNum.indexOf(".") > 0) {
+	     temp = sNum.substring(0, sNum.indexOf("."));
+	   } else
+	     temp = sNum;
+	   iCount = temp.length() % 4 != 0 ? temp.length() / 4 + 1 : temp.length() / 4;
+	   
+
+	   for (int i = iCount; i >= 1; i--)
+	   {
+	     if ((i == iCount) && (temp.length() % 4 != 0)) {
+	       iLength = temp.length() % 4;
+	     } else
+	       iLength = 4;
+	     sIntD = temp.substring(lStartPos, lStartPos + iLength);
+	     for (int j = 0; j < sIntD.length(); j++)
+	     {
+	       if (Integer.parseInt(sIntD.substring(j, j + 1)) != 0)
+	       {
+	         switch (Integer.parseInt(sIntD.substring(j, j + 1)))
+	         {
+	         case 1: 
+	           NtoC = NtoC + "壹" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 2: 
+	           NtoC = NtoC + "贰" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 3: 
+	           NtoC = NtoC + "叁" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 4: 
+	           NtoC = NtoC + "肆" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 5: 
+	           NtoC = NtoC + "伍" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 6: 
+	           NtoC = NtoC + "陆" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 7: 
+	           NtoC = NtoC + "柒" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 8: 
+	           NtoC = NtoC + "捌" + sBIT[(sIntD.length() - j - 1)];
+	           break;
+	         case 9: 
+	           NtoC = NtoC + "玖" + sBIT[(sIntD.length() - j - 1)];
+	         
+	         }
+	         
+	       } else if ((j + 1 < sIntD.length()) && (sIntD.charAt(j + 1) != '0'))
+	         NtoC = NtoC + "零";
+	     }
+	     lStartPos += iLength;
+	     if (i < iCount)
+	     {
+	       if ((Integer.parseInt(sIntD.substring(sIntD.length() - 1, sIntD.length())) != 0) || (Integer.parseInt(sIntD.substring(sIntD.length() - 2, sIntD.length() - 1)) != 0) || (Integer.parseInt(sIntD.substring(sIntD.length() - 3, sIntD.length() - 2)) != 0) || (Integer.parseInt(sIntD.substring(sIntD.length() - 4, sIntD.length() - 3)) != 0))
+	       {
+
+
+
+	         NtoC = NtoC + sUNIT[(i - 1)];
+	       }
+	     } else
+	       NtoC = NtoC + sUNIT[(i - 1)];
+	   }
+	   if (NtoC.length() > 0) {
+	     NtoC = NtoC + "元";
+	   }
+	   
+	   if (sNum.indexOf(".") > 0)
+	   {
+	     sDecD = sNum.substring(sNum.indexOf(".") + 1);
+	     for (int i = 0; i < 2; i++)
+	     {
+	       if (Integer.parseInt(sDecD.substring(i, i + 1)) != 0)
+	       {
+	         switch (Integer.parseInt(sDecD.substring(i, i + 1)))
+	         {
+	         case 1: 
+	           NtoC = NtoC + "壹" + sCents[(1 - i)];
+	           break;
+	         case 2: 
+	           NtoC = NtoC + "贰" + sCents[(1 - i)];
+	           break;
+	         case 3: 
+	           NtoC = NtoC + "叁" + sCents[(1 - i)];
+	           break;
+	         case 4: 
+	           NtoC = NtoC + "肆" + sCents[(1 - i)];
+	           break;
+	         case 5: 
+	           NtoC = NtoC + "伍" + sCents[(1 - i)];
+	           break;
+	         case 6: 
+	           NtoC = NtoC + "陆" + sCents[(1 - i)];
+	           break;
+	         case 7: 
+	           NtoC = NtoC + "柒" + sCents[(1 - i)];
+	           break;
+	         case 8: 
+	           NtoC = NtoC + "捌" + sCents[(1 - i)];
+	           break;
+	         case 9: 
+	           NtoC = NtoC + "玖" + sCents[(1 - i)];
+	         
+	         }
+	         
+	       } else if (NtoC.length() > 0) {
+	         NtoC = NtoC + "零";
+	       }
+	     }
+	   } else {
+	     NtoC = NtoC + "整";
+	   }
+	   
+	   if (NtoC.substring(NtoC.length() - 1).compareTo("零") == 0)
+	     NtoC = NtoC.substring(0, NtoC.length() - 1);
+	   return NtoC;
+	 }
+	 
+	 /**
+	  * 截取字符串
+	  * @param sSource
+	  * @param sBeginIdentifier
+	  * @param sEndIdentifier
+	  * @return
+	  */
+	 public static String subXString(String sSource, String sBeginIdentifier, String sEndIdentifier){
+	      return sSource.substring(sSource.indexOf(sBeginIdentifier) + sBeginIdentifier.length(), sSource.indexOf(sEndIdentifier));
+	 }
+	 
 	/**
 	 * string(年月日)转换为date
 	 * @param str
@@ -698,11 +1080,11 @@ public class StringL {
 	
 	/**
 	 * "{{\"1\",\"2\"},{\"3\",\"4\"}}"<br>
-	 * 转换为字符数组
+	 * 转换为字符串数组
 	 * @param s
 	 * @return
 	 */
-	public static String[][] genStringArray(String s)
+	public static String[][] getStringArray(String s)
 	{
 	  int beginDelim = getSeparateSum(s, "{") - 1;
 	  int endDelim = getSeparateSum(s, "}") - 1;
@@ -745,13 +1127,7 @@ public class StringL {
 	}
 	
 	public static void main(String[] args) {
-//		String sss= "{1}fef{2}{122}fef{23}{13}fef{22}";
-//		System.err.println(sss);
-//		String[]  s = parseArray(sss);
-//		System.err.println(s.length);
-//		for (String string : s) {
-//			System.err.println(string);
-//		}
+		System.err.println(StringL.getNow());
 		
 	}
 }

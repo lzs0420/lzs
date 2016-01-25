@@ -1,6 +1,10 @@
 package mine.allen.util.common;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 检测是否为移动端设备访问
- * 
+ * 检测用户的一些方法
  * @author  	: allen
  * @Version 	: 1.00
  * @Date    	: 2016-1-21 上午09:55:19 
@@ -31,6 +34,11 @@ public class UserAgent {
 	//移动设备正则匹配：手机端、平板
 	static Pattern phonePat = Pattern.compile(phoneReg, Pattern.CASE_INSENSITIVE);  
 	static Pattern tablePat = Pattern.compile(tableReg, Pattern.CASE_INSENSITIVE);  
+	
+	static Pattern patternLocation = Pattern.compile("<LOCATION>(.+{1,})</LOCATION>");    
+    private static final String IPURL = " http://www.youdao.com/smartresult-xml/search.s?type=ip&q=";    
+    private static final String IDURL = " http://www.youdao.com/smartresult-xml/search.s?type=id&q=";    
+    private static final String MOBILEURL = " http://www.youdao.com/smartresult-xml/search.s?type=mobile&q=";    
 	  
 	/**
 	 * 检测是否是移动设备访问
@@ -112,5 +120,80 @@ public class UserAgent {
 	      
 	    return userAgent;  
 	} 
+	
+	private static String getLocationByIP(String ip) {    
+        String address = "";    
+        try {    
+    
+            URL url = new URL(IPURL + ip);    
+            address = search(url);    
+    
+        } catch (Exception e) {    
+            e.printStackTrace();    
+        }    
+        address = address.substring(address.indexOf("location") + 9);    
+        return address.substring(0, address    
+                .indexOf("</location"));    
+    }    
+        
+    private static String getLocationById(String id) {    
+        String address = "";    
+        try {    
+    
+            URL url = new URL(IDURL + id);    
+            address = search(url);    
+    
+        } catch (Exception e) {    
+            e.printStackTrace();    
+        }    
+        String sex = address.indexOf("<gender>m</gender")>0?"男":"女";    
+            
+        address = address.substring(address.indexOf("location") + 9);    
+        String birthday = address.substring(address.indexOf("birthday>")+9,address.indexOf("</bir"));    
+        birthday = birthday.substring(0,4)+"年"+birthday.substring(4,6)+"月"+birthday.substring(6,8)+"日";    
+        return "地址："+address.substring(0, address    
+                .indexOf("</location"))+" 性别："+sex+" 生日:"+birthday;    
+    }    
+        
+    private static String getLocationByMobile(String mobile) {    
+        String address = "";    
+        try {    
+    
+            URL url = new URL(MOBILEURL + mobile);    
+            address = search(url);    
+    
+        } catch (Exception e) {    
+            e.printStackTrace();    
+        }    
+        address = address.substring(address.indexOf("location") + 9);    
+        return "该号码归属地为："+address.substring(0, address    
+                .indexOf("</location"));    
+    }    
+    private static String search(URL url) throws IOException {    
+        String address;    
+        HttpURLConnection connect = (HttpURLConnection) url    
+                .openConnection();    
+        InputStream is = connect.getInputStream();    
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();    
+        byte[] buff = new byte[256];    
+        int rc = 0;    
+        while ((rc = is.read(buff, 0, 256)) > 0) {    
+            outStream.write(buff, 0, rc);    
+        }    
+        byte[] b = outStream.toByteArray();    
+        //关闭    
+        outStream.close();    
+        is.close();    
+        connect.disconnect();    
+        address = new String(b);    
+        return address;    
+    }    
+    
+    public static void main(String[] args) {    
+        System.out.println(getLocationByIP("221.226.177.158"));    
+        System.out.println(getLocationById("xx"));    
+        System.out.println(getLocationByMobile("xx"));    
+    }    
+	
 }
 
