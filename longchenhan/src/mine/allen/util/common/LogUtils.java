@@ -69,8 +69,7 @@ public class LogUtils {
     /**以config文件路径初始化log<br>不存在以默认配置初始化
      * */
     public static void loadConfig(String config){
-    	String filePath = FileUtils.getPathPart(LogUtils.class.getResource("/").getPath());
-    	filePath = filePath.substring(1,filePath.length());
+    	String filePath = FileUtils.getConfigAbsolutepath();
     	filePath = FileUtils.getFullName(filePath, config);
     	
     	//DOMConfigurator.configure("E:/study/log4j/log4j.xml");//加载.xml文件 
@@ -89,8 +88,7 @@ public class LogUtils {
     /**替换初始化文件config，同时写入config
      * */
     public static void replaceAndWriteConfig(String config ,HashMap<String, String> hashMap){
-    	String filePath = FileUtils.getPathPart(LogUtils.class.getResource("/").getPath());
-    	filePath = filePath.substring(1,filePath.length());
+    	String filePath = FileUtils.getConfigAbsolutepath();
     	filePath = FileUtils.getFullName(filePath, config);
     	if (FileUtils.isFileExist(config)) {  
     		filePath = config;
@@ -135,8 +133,7 @@ public class LogUtils {
     public static Properties replaceConfig(String config ,HashMap<String, String> hashMap){
     	Properties prop = null;
     	
-    	String filePath = FileUtils.getPathPart(LogUtils.class.getResource("/").getPath());
-    	filePath = filePath.substring(1,filePath.length());
+    	String filePath = FileUtils.getConfigAbsolutepath();
     	filePath = FileUtils.getFullName(filePath, config);
     	if (FileUtils.isFileExist(config)) {  
     		filePath = config;
@@ -180,15 +177,14 @@ public class LogUtils {
      */
 	private static void logPrint(String message,String type,Throwable t) {
 		String logTime = StringL.getToday("-");
-		String fileUrlPath = FileUtils.getPathPart(LogUtils.class.getResource("/").getPath());
-		fileUrlPath = fileUrlPath.substring(1,fileUrlPath.length());
+		String fileUrlPath = FileUtils.getConfigAbsolutepath();
 		if(type.equals("error")) fileUrlPath = fileUrlPath+"/logs/"+logTime+"_error.log";
 	    else fileUrlPath = fileUrlPath+"/logs/"+logTime+"_log.log";
 	    PrintWriter out = null;
 	    try {
 	    	StackTraceElement[] threadste = Thread.currentThread().getStackTrace();
 	    	message = StringL.getTodayNow() + "["+type+"] " + 
-	    			threadste[threadste.length-1].toString() +" "+ message==null?"":message;
+	    			threadste[threadste.length-1].toString() +" "+ (message==null?"":message);
 	    	if(!FileUtils.isFileExist(fileUrlPath)){
 	    		FileUtils.createFile(fileUrlPath);
 	    	}
@@ -263,6 +259,7 @@ public class LogUtils {
 //		logger.info("@@1!!23213");
 //		logger2.debug("@@2!!4444");
 		infoPrint("111",new Exception("213123"));
+		System.out.println(Class.class.getResource("/"));
 //		loadConfig("E:/GitHub/lzs/longchenhan/WebRoot/aa/log4j.properties");
 //		HashMap<String,String> hm = new HashMap<String,String>();
 //		hm.put("MyEclipse", "111");

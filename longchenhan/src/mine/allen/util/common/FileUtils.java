@@ -674,6 +674,21 @@ public class FileUtils {
         return fileName;
       }
     }
+    /**
+     * 根据类路径得到配置路径的绝对路径。
+     * @param pathName 目录名
+     * @param fileName 文件名
+     * @return 得到文件名相对于目录名的相对路径，目录下不存在该文件时返回文件名
+     * @since   0.5
+     */
+    public static String getConfigAbsolutepath() {
+    	String fileUrlPath = FileUtils.getPathPart(FileUtils.class.getResource("/").getPath());
+    	String os = System.getProperty("os.name");
+    	if(os.toLowerCase().startsWith("win")){  
+    		fileUrlPath = fileUrlPath.substring(1,fileUrlPath.length());
+    	}
+		return fileUrlPath;
+    }
 	
 	public static void main(String[] args) {
 		try {
@@ -681,20 +696,25 @@ public class FileUtils {
 //			str.substring(str.indexOf("/WEB-INF"));
 //			str = str.substring(1,str.indexOf("/WEB-INF"))+"/help/html/";
 //			FileUtils.writeFileFromUrl(str+"noticelist.jsp", "http://localhost:8080/qsh_p2p/help/noticelist.jsp");
-			String str = FileUtils.class.getClass().getResource("/").getPath();
-			str.substring(100);
+			File file = new File("1");
+			System.out.println(file.getAbsolutePath());
+			System.out.println(file.getCanonicalPath());
+			System.out.println(file.getParent());
+			System.out.println(file.getPath());
+			System.out.println(file.getTotalSpace());
+			System.out.println(file.getAbsoluteFile());
 			
 		} catch (Exception e) {
-			System.out.println(e.getCause());
-			System.out.println(e.toString());
-			System.out.println(e.getClass());
-			System.out.println(e.getStackTrace());
-			System.out.println(e.getLocalizedMessage());
-			System.out.println(e.getMessage());
-			StackTraceElement[] ste = e.getStackTrace();
-			for (StackTraceElement stackTraceElement : ste) {
-				System.out.println(stackTraceElement);
-			}
+//			System.out.println(e.getCause());
+//			System.out.println(e.toString());
+//			System.out.println(e.getClass());
+//			System.out.println(e.getStackTrace());
+//			System.out.println(e.getLocalizedMessage());
+//			System.out.println(e.getMessage());
+//			StackTraceElement[] ste = e.getStackTrace();
+//			for (StackTraceElement stackTraceElement : ste) {
+//				System.out.println(stackTraceElement);
+//			}
 		}
 	}
 }
