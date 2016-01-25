@@ -1,0 +1,19 @@
+2016/01/25 10:11:49[info] 111
+2016/01/25 10:12:16[info] 111
+java.lang.Exception: 213123
+	mine.allen.util.common.LogUtils.main(LogUtils.java:172)
+2016/01/25 13:24:9[info] mine.allen.util.common.LogUtils.logPrint(LogUtils.java:188)mine.allen.util.common.LogUtilslogPrint191111
+java.lang.Exception: 213123
+	mine.allen.util.common.LogUtils.main(LogUtils.java:266)
+2016/01/25 13:25:37[info] mine.allen.util.common.LogUtils.logPrint(LogUtils.java:188)111
+java.lang.Exception: 213123
+	mine.allen.util.common.LogUtils.main(LogUtils.java:262)
+2016/01/25 13:25:51[info] mine.allen.util.common.LogUtils.logPrint(LogUtils.java:188) 111
+java.lang.Exception: 213123
+	mine.allen.util.common.LogUtils.main(LogUtils.java:262)
+2016/01/25 13:30:37[info] mine.allen.util.common.LogUtils.logPrint(LogUtils.java:188) 111
+java.lang.Exception: 213123
+	mine.allen.util.common.LogUtils.main(LogUtils.java:262)
+2016/01/25 13:31:43[info] mine.allen.util.common.LogUtils.main(LogUtils.java:262) 111
+java.lang.Exception: 213123
+	mine.allen.util.common.LogUtils.main(LogUtils.java:262)
