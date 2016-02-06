@@ -690,19 +690,19 @@ public class FileUtils {
 		return fileUrlPath;
     }
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		try {
 //			String str = FileUtils.class.getClass().getResource("/").getPath();
 //			str.substring(str.indexOf("/WEB-INF"));
 //			str = str.substring(1,str.indexOf("/WEB-INF"))+"/help/html/";
 //			FileUtils.writeFileFromUrl(str+"noticelist.jsp", "http://localhost:8080/qsh_p2p/help/noticelist.jsp");
-			File file = new File("1");
-			System.out.println(file.getAbsolutePath());
-			System.out.println(file.getCanonicalPath());
-			System.out.println(file.getParent());
-			System.out.println(file.getPath());
-			System.out.println(file.getTotalSpace());
-			System.out.println(file.getAbsoluteFile());
+//			File file = new File("1");
+//			System.out.println(file.getAbsolutePath());
+//			System.out.println(file.getCanonicalPath());
+//			System.out.println(file.getParent());
+//			System.out.println(file.getPath());
+//			System.out.println(file.getTotalSpace());
+//			System.out.println(file.getAbsoluteFile());
 			
 		} catch (Exception e) {
 //			System.out.println(e.getCause());
