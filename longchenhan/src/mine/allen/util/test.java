@@ -37,7 +37,7 @@ public class test {
 //                        + rs.getString(2) + " password : " + rs.getString(3));
 //            }
  
-            // ¹Ø±Õ¼ÇÂ¼¼¯
+            // å…³é—­è®°å½•é›†
 //            if (rs != null) {
 //                try {
 //                    rs.close();
@@ -46,7 +46,7 @@ public class test {
 //                }
 //            }
  
-            // ¹Ø±ÕÉùÃ÷
+            // å…³é—­å£°æ˜Ž
             if (ps != null) {
                 try {
                     ps.close();
@@ -55,7 +55,7 @@ public class test {
                 }
             }
  
-            // ¹Ø±ÕÁ´½Ó¶ÔÏó
+            // å…³é—­é“¾æŽ¥å¯¹è±¡
             if (conn != null) {
                 try {
                     conn.close();

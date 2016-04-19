@@ -3,15 +3,15 @@ package mine.allen.util.common;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * ¹ØÓÚ¼ÓÃÜ×Ö·û´®
+ * å…³äºåŠ å¯†å­—ç¬¦ä¸²
  * @author Allen
  *
  */
 public class MessageDigest{
 	
 	/**
-	 * Ö¸¶¨¼ÓÃÜÄ£Ê½¼ÓÃÜ×Ö½ÚÊı×é
-	 * @param algorithm ÎªnullÊ±Ä¬ÈÏMD5
+	 * æŒ‡å®šåŠ å¯†æ¨¡å¼åŠ å¯†å­—èŠ‚æ•°ç»„
+	 * @param algorithm ä¸ºnullæ—¶é»˜è®¤MD5
 	 * @param srcData byte[]
 	 * @return byte[]
 	 * @throws NoSuchAlgorithmException
@@ -28,8 +28,8 @@ public class MessageDigest{
 	}
 	
 	/**
-	 * Ö¸¶¨¼ÓÃÜÄ£Ê½¼ÓÃÜ×Ö·û´®
-	 * @param algorithm ÎªnullÊ±Ä¬ÈÏMD5
+	 * æŒ‡å®šåŠ å¯†æ¨¡å¼åŠ å¯†å­—ç¬¦ä¸²
+	 * @param algorithm ä¸ºnullæ—¶é»˜è®¤MD5
 	 * @param srcData String
 	 * @return byte[]
 	 * @throws NoSuchAlgorithmException
@@ -40,8 +40,8 @@ public class MessageDigest{
 	}
 	
 	/**
-	 * ½«×Ö·û´®¼ÓÃÜ×ª»¯³É16½øÖÆĞ¡Ğ´×Ö·û´®
-	 * @param algorithm ÎªnullÊ±Ä¬ÈÏMD5
+	 * å°†å­—ç¬¦ä¸²åŠ å¯†è½¬åŒ–æˆ16è¿›åˆ¶å°å†™å­—ç¬¦ä¸²
+	 * @param algorithm ä¸ºnullæ—¶é»˜è®¤MD5
 	 * @param srcData
 	 * @return String
 	 * @throws NoSuchAlgorithmException
@@ -52,8 +52,8 @@ public class MessageDigest{
 	}
 	
 	/**
-	 * ½«×Ö·û´®¼ÓÃÜ×ª»¯³É16½øÖÆ´óĞ´×Ö·û´®
-	 * @param algorithm ÎªnullÊ±Ä¬ÈÏMD5
+	 * å°†å­—ç¬¦ä¸²åŠ å¯†è½¬åŒ–æˆ16è¿›åˆ¶å¤§å†™å­—ç¬¦ä¸²
+	 * @param algorithm ä¸ºnullæ—¶é»˜è®¤MD5
 	 * @param srcData
 	 * @return String
 	 * @throws NoSuchAlgorithmException
@@ -64,8 +64,8 @@ public class MessageDigest{
 	}
   
 	/**
-	 * ½«×Ö½ÚÊı×é¼ÓÃÜ×ª»¯³É16½øÖÆĞ¡Ğ´×Ö·û´®
-	 * @param algorithm ÎªnullÊ±Ä¬ÈÏMD5
+	 * å°†å­—èŠ‚æ•°ç»„åŠ å¯†è½¬åŒ–æˆ16è¿›åˆ¶å°å†™å­—ç¬¦ä¸²
+	 * @param algorithm ä¸ºnullæ—¶é»˜è®¤MD5
 	 * @param srcData byte[]
 	 * @return String
 	 * @throws NoSuchAlgorithmException
@@ -75,8 +75,8 @@ public class MessageDigest{
 	}
   
 	/**
-	 * ½«×Ö½ÚÊı×é¼ÓÃÜ×ª»¯³É16½øÖÆ´óĞ´×Ö·û´®
-	 * @param algorithm ÎªnullÊ±Ä¬ÈÏMD5
+	 * å°†å­—èŠ‚æ•°ç»„åŠ å¯†è½¬åŒ–æˆ16è¿›åˆ¶å¤§å†™å­—ç¬¦ä¸²
+	 * @param algorithm ä¸ºnullæ—¶é»˜è®¤MD5
 	 * @param srcData byte[]
 	 * @return String
 	 * @throws NoSuchAlgorithmException

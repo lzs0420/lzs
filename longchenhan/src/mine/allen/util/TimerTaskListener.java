@@ -11,19 +11,19 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import mine.allen.util.common.LogUtils;
-@WebListener("ÈÕÇĞ¼àÌıÆ÷")
+@WebListener("æ—¥åˆ‡ç›‘å¬å™¨")
 public class TimerTaskListener implements ServletContextListener {
 
-	private Timer timer = null; // ¶¨Ê±Æ÷
-	private long delay = 0; // ÑÓÊ±Ê±¼äÖµ£¨µ±Ç°ÏµÍ³Ê±¼äµ½ÏÂÔØÊ±¼äÖ®¼äµÄÊ±¼ä²îºÁÃëÊı£©
-	private long between = 0; // ¼ä¸ôÊ±¼äÖµ
+	private Timer timer = null; // å®šæ—¶å™¨
+	private long delay = 0; // å»¶æ—¶æ—¶é—´å€¼ï¼ˆå½“å‰ç³»ç»Ÿæ—¶é—´åˆ°ä¸‹è½½æ—¶é—´ä¹‹é—´çš„æ—¶é—´å·®æ¯«ç§’æ•°ï¼‰
+	private long between = 0; // é—´éš”æ—¶é—´å€¼
 
 	@Override
 	public void contextInitialized(ServletContextEvent paramServletContextEvent) {
-		init(paramServletContextEvent);// ³õÊ¼»¯²ÎÊı
-		timer = new Timer(true);// ´´½¨Timer¶ÔÏó
-		// ¶¨Ê±Ö´ĞĞ³ÌĞò
-		// µ÷ÓÃHandle()Àà£¨¼´Ã¿ÌìÒªÖ´ĞĞµÄÈÎÎñ£©£¬delay±íÊ¾ÑÓ³ÙºÁÃëÊı£¬0,24*60*60*1000±íÊ¾Ã¿¸ôÒ»ÌìÖ´ĞĞÒ»´ÎÈÎÎñ£¬60*60*1000±íÊ¾Ò»¸öĞ¡Ê±£»
+		init(paramServletContextEvent);// åˆå§‹åŒ–å‚æ•°
+		timer = new Timer(true);// åˆ›å»ºTimerå¯¹è±¡
+		// å®šæ—¶æ‰§è¡Œç¨‹åº
+		// è°ƒç”¨Handle()ç±»ï¼ˆå³æ¯å¤©è¦æ‰§è¡Œçš„ä»»åŠ¡ï¼‰ï¼Œdelayè¡¨ç¤ºå»¶è¿Ÿæ¯«ç§’æ•°ï¼Œ0,24*60*60*1000è¡¨ç¤ºæ¯éš”ä¸€å¤©æ‰§è¡Œä¸€æ¬¡ä»»åŠ¡ï¼Œ60*60*1000è¡¨ç¤ºä¸€ä¸ªå°æ—¶ï¼›
 		timer.schedule(new Handle(paramServletContextEvent.getServletContext()),
 				delay, between);
 	}
@@ -34,19 +34,19 @@ public class TimerTaskListener implements ServletContextListener {
 	}
 
 	/**
-	 * ³õÊ¼»¯²ÎÊı
+	 * åˆå§‹åŒ–å‚æ•°
 	 * @param paramServletContextEvent 
 	 */
 	public void init(ServletContextEvent paramServletContextEvent) {
-		//´ÓÅäÖÃ²ÎÊıÅäÖÃTimerTask
+		//ä»é…ç½®å‚æ•°é…ç½®TimerTask
 		String timerTask = paramServletContextEvent.getServletContext().getInitParameter("TimerTask");
 		String[] timerTasks = timerTask.split(",");
-		// ÉùÃ÷Ò»¸öCalendar¶ÔÏó
+		// å£°æ˜ä¸€ä¸ªCalendarå¯¹è±¡
 		Calendar cal = Calendar.getInstance();
 		Calendar cal2 = Calendar.getInstance();
-		// ÉùÃ÷µ±Ç°Ê±¼ä
+		// å£°æ˜å½“å‰æ—¶é—´
 		Date now = new Date();
-		// ÉèÖÃÊ±¼ä
+		// è®¾ç½®æ—¶é—´
 		try{
 			cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timerTasks[0]));
 			cal.set(Calendar.MINUTE, Integer.parseInt(timerTasks[1]));
@@ -65,41 +65,41 @@ public class TimerTaskListener implements ServletContextListener {
 			default:break;
 			}
 		}catch(NumberFormatException | ArrayIndexOutOfBoundsException e){
-			LogUtils.errorPrint("TimerTaskÅäÖÃ´íÎó(ÇëÅäÖÃ·¶Î§ÄÚÕûÊı),Ğ¡Ê±£º"
-					+timerTasks[0]+",·ÖÖÓ£º"+timerTasks[1]+",Ãë£º"+timerTasks[2]+",ÀàĞÍ£º"+timerTasks[3]+",¼ä¸ô£º"+timerTasks[4]+"",e);
+			LogUtils.errorPrint("TimerTaské…ç½®é”™è¯¯(è¯·é…ç½®èŒƒå›´å†…æ•´æ•°),å°æ—¶ï¼š"
+					+timerTasks[0]+",åˆ†é’Ÿï¼š"+timerTasks[1]+",ç§’ï¼š"+timerTasks[2]+",ç±»å‹ï¼š"+timerTasks[3]+",é—´éš”ï¼š"+timerTasks[4]+"",e);
 		}
-		// »ñÈ¡Éè¶¨µÄÊ±¼ä
+		// è·å–è®¾å®šçš„æ—¶é—´
 		Date date = cal.getTime();
-		// »ñÈ¡Éè¶¨µÄÊ±¼äºÍµ±Ç°µÄÊ±¼ä²î£¨ºÁÃëÊı£©
+		// è·å–è®¾å®šçš„æ—¶é—´å’Œå½“å‰çš„æ—¶é—´å·®ï¼ˆæ¯«ç§’æ•°ï¼‰
 		long interval = date.getTime() - now.getTime();
-		// Èç¹ûµ±Ç°Ê±¼ä´óÓÚÏÂÔØÊ±¼ä£¬Ôò½«ÏÂÔØÊ±¼äÉèÖÃÎªÏÂÒ»¸öÏÂÔØÊ±¼ä
+		// å¦‚æœå½“å‰æ—¶é—´å¤§äºä¸‹è½½æ—¶é—´ï¼Œåˆ™å°†ä¸‹è½½æ—¶é—´è®¾ç½®ä¸ºä¸‹ä¸€ä¸ªä¸‹è½½æ—¶é—´
 		if (interval < 0) {
-			cal.add(Calendar.DAY_OF_MONTH, 1);// ½«ÌìÊı¼Ó1
+			cal.add(Calendar.DAY_OF_MONTH, 1);// å°†å¤©æ•°åŠ 1
 			date = cal.getTime();
-			// »ñÈ¡Éè¶¨µÄÊ±¼äºÍµ±Ç°µÄÊ±¼ä²î£¨ºÁÃëÊı£©
+			// è·å–è®¾å®šçš„æ—¶é—´å’Œå½“å‰çš„æ—¶é—´å·®ï¼ˆæ¯«ç§’æ•°ï¼‰
 			interval = date.getTime() - now.getTime();
 		}
-		this.delay = interval;// ³õÊ¼»¯µ±Ç°Ê±¼äµ½ÏÂÔØÊ±¼äÖ®¼äµÄÊ±¼ä²î
-		LogUtils.infoPrint("=====µÚÒ»´ÎÈÕÇĞÊ±¼ä£º"+date+" =====");
-		LogUtils.infoPrint("TimerTaskÅäÖÃ£ºĞ¡Ê±£º"
-					+timerTasks[0]+",·ÖÖÓ£º"+timerTasks[1]+",Ãë£º"+timerTasks[2]+",ÀàĞÍ£º"+timerTasks[3]+",¼ä¸ô£º"+timerTasks[4]);
+		this.delay = interval;// åˆå§‹åŒ–å½“å‰æ—¶é—´åˆ°ä¸‹è½½æ—¶é—´ä¹‹é—´çš„æ—¶é—´å·®
+		LogUtils.infoPrint("=====ç¬¬ä¸€æ¬¡æ—¥åˆ‡æ—¶é—´ï¼š"+date+" =====");
+		LogUtils.infoPrint("TimerTaské…ç½®ï¼šå°æ—¶ï¼š"
+					+timerTasks[0]+",åˆ†é’Ÿï¼š"+timerTasks[1]+",ç§’ï¼š"+timerTasks[2]+",ç±»å‹ï¼š"+timerTasks[3]+",é—´éš”ï¼š"+timerTasks[4]);
 	}
 
 	public class Handle extends TimerTask {
 
 		private ServletContext context = null;
-		Timer timer = null; // ²éÑ¯ÈÎÎñ¶¨Ê±Æ÷
+		Timer timer = null; // æŸ¥è¯¢ä»»åŠ¡å®šæ—¶å™¨
 
 		public Handle(ServletContext context) {
 			this.context = context;
 		}
 
 		/**
-		 * ¿ªÊ¼Ö´ĞĞ
+		 * å¼€å§‹æ‰§è¡Œ
 		 */
 		public void run() {
-			// ¿ªÊ¼Ö´ĞĞ
-			context.log("¿ªÊ¼Ö´ĞĞ£¡");
+			// å¼€å§‹æ‰§è¡Œ
+			context.log("å¼€å§‹æ‰§è¡Œï¼");
 		}
 	}
 }

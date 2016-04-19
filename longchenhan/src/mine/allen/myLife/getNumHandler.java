@@ -9,9 +9,9 @@ import mine.allen.util.contextDB;
 
 public class getNumHandler {
 	/**
-	 * ¸ù¾İdata»ñµÃdata_showµÄnum
+	 * æ ¹æ®dataè·å¾—data_showçš„num
 	 * @param data
-	 * @param dataAddType 1:¼Ó1
+	 * @param dataAddType 1:åŠ 1
 	 * @return num
 	 * @throws SQLException 
 	 */
@@ -33,7 +33,7 @@ public class getNumHandler {
 	}
 	
 	/**
-	 * Ôö¼ÓÊıÄ¿
+	 * å¢åŠ æ•°ç›®
 	 * @param contextDb
 	 * @param data
 	 * @throws SQLException
