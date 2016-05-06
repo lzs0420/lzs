@@ -70,7 +70,7 @@
 	</security-role>
 	
 	<context-param>
-		<description>日切时间（小时,分钟,秒,类型[0:年1:月2:日3:小时4:分钟5:秒],间隔数）</description>
+		<description>日切时间（小时,分钟,秒,间隔类型[0:年1:月2:日3:小时4:分钟5:秒],间隔数）</description>
 		<param-name>TimerTask</param-name>
 		<param-value>0,0,0,2,1</param-value>
 	</context-param>
