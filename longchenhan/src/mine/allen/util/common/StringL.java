@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * ¹ØÓÚStringµÄÒ»Ğ©·½·¨
+ * å…³äºStringçš„ä¸€äº›æ–¹æ³•
  * @author Allen
  * @version 1.0
  * @since 2016/01/20 15:36
@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 public class StringL {
 	
 	/**
-	 * »ñÈ¡ÈÕÆÚ
+	 * è·å–æ—¥æœŸ
 	 * @return yyyy/MM/dd
 	 */
 	public static String getToday(){
@@ -35,7 +35,7 @@ public class StringL {
 	}
 	
 	/**
-	 * ¸ù¾İÖ¸¶¨¸ñÊ½»ñÈ¡ÈÕÆÚ
+	 * æ ¹æ®æŒ‡å®šæ ¼å¼è·å–æ—¥æœŸ
 	 * @param sFormat
 	 * @return
 	 */
@@ -47,7 +47,7 @@ public class StringL {
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼ä£¬Ã»ÓĞÈÕÆÚ 
+	 * è·å–å½“å‰æ—¶é—´ï¼Œæ²¡æœ‰æ—¥æœŸ 
 	 * @return HH:mm:ss
 	 */
 	public static String getNow() {
@@ -56,7 +56,7 @@ public class StringL {
 	}
 	
 	/**
-	 * »ñÈ¡ÈÕÆÚÊ±¼ä
+	 * è·å–æ—¥æœŸæ—¶é—´
 	 * @return yyyy/MM/dd HH:mm:ss
 	 */
 	public static String getTodayNow(){
@@ -64,7 +64,7 @@ public class StringL {
 	}
 	
 	/***
-	 * Ìæ»»×Ö·û´®
+	 * æ›¿æ¢å­—ç¬¦ä¸²
 	 * @param s
 	 * @param sOld
 	 * @param sNew
@@ -94,7 +94,7 @@ public class StringL {
 	}
 	
 	/**
-	 * Îª×Ö·û´®Ìí¼Ó×ªÒå×Ö·û"\"
+	 * ä¸ºå­—ç¬¦ä¸²æ·»åŠ è½¬ä¹‰å­—ç¬¦"\"
 	 * @param src
 	 * @return
 	 */
@@ -132,7 +132,7 @@ public class StringL {
 	}
 	
 	/**
-	 * ÒÆ³ıËùÓĞ¿Õ¸ñ
+	 * ç§»é™¤æ‰€æœ‰ç©ºæ ¼
 	 * @param s
 	 * @return
 	 */
@@ -156,7 +156,7 @@ public class StringL {
 	}
 	
 	/**
-	 * ¸ù¾İÈ«Â·¾¶»ñÈ¡ÎÄ¼şÃû
+	 * æ ¹æ®å…¨è·¯å¾„è·å–æ–‡ä»¶å
 	 * @param filePathName
 	 * @return
 	 */
@@ -174,7 +174,7 @@ public class StringL {
 	}
 	
 	/**
-	 * ·µ»ØiBeginPosÖ®ºó×îºóÒ»¸ösTargetµÄÎ»ÖÃ
+	 * è¿”å›iBeginPosä¹‹åæœ€åä¸€ä¸ªsTargetçš„ä½ç½®
 	 * @param sSource
 	 * @param sTarget
 	 * @param sDelim1
@@ -190,7 +190,7 @@ public class StringL {
 	}
 
 	/**
-	 * ·µ»ØiBeginPos, iEndPosÖ®¼äµÄsSourceÖĞsTarget³öÏÖµÄÎ»ÖÃ
+	 * è¿”å›iBeginPos, iEndPosä¹‹é—´çš„sSourceä¸­sTargetå‡ºç°çš„ä½ç½®
 	 * @param sSource
 	 * @param sTarget
 	 * @param iBeginPos
@@ -202,8 +202,8 @@ public class StringL {
 	}
 
 	/**
-	 * ·µ»ØiBeginPos, iEndPosÖ®¼äµÄsSourceÖĞsDelim1³öÏÖµÄ´ÎÊı-sDelim2³öÏÖµÄ´ÎÊı<br>
-	 * Èç¹ûsDelim1=sDelim2£¬·µ»ØsDelim1³öÏÖµÄ´ÎÊı%2£¨0»ò1£©
+	 * è¿”å›iBeginPos, iEndPosä¹‹é—´çš„sSourceä¸­sDelim1å‡ºç°çš„æ¬¡æ•°-sDelim2å‡ºç°çš„æ¬¡æ•°<br>
+	 * å¦‚æœsDelim1=sDelim2ï¼Œè¿”å›sDelim1å‡ºç°çš„æ¬¡æ•°%2ï¼ˆ0æˆ–1ï¼‰
 	 * @param sSource
 	 * @param sDelim1
 	 * @param sDelim2
@@ -220,7 +220,7 @@ public class StringL {
 	}
 
 	/**
-	 * »ñÈ¡sDelim³öÏÖµÄ´ÎÊı
+	 * è·å–sDelimå‡ºç°çš„æ¬¡æ•°
 	 * @param sSource
 	 * @param sDelim
 	 * @return
@@ -233,7 +233,7 @@ public class StringL {
 	}
 
 	/**
-	 * »ñÈ¡sDelim³öÏÖµÄ´ÎÊı£¨ºöÂÔ´óĞ¡Ğ´£©
+	 * è·å–sDelimå‡ºç°çš„æ¬¡æ•°ï¼ˆå¿½ç•¥å¤§å°å†™ï¼‰
 	 * @param sSource
 	 * @param sDelim
 	 * @return
@@ -246,7 +246,7 @@ public class StringL {
 	}
 
 	/**
-	 * ½ØÈ¡µÚiOrder-1¸ösDelimºÍµÚiOrder¸ösDelimÖ®¼äµÄ×Ö·û´®
+	 * æˆªå–ç¬¬iOrder-1ä¸ªsDelimå’Œç¬¬iOrderä¸ªsDelimä¹‹é—´çš„å­—ç¬¦ä¸²
 	 * @param sSource
 	 * @param sDelim
 	 * @param iOrder
@@ -267,7 +267,7 @@ public class StringL {
 	}
 	
 	/**
-	  * String×ª»»³ÉArray£¬ÒÔsDelimÎª¼ä¸ô·û
+	  * Stringè½¬æ¢æˆArrayï¼Œä»¥sDelimä¸ºé—´éš”ç¬¦
 	  * @param sSource
 	  * @param sDelim
 	  * @return
@@ -285,7 +285,7 @@ public class StringL {
 	 }
 
 	 /**
-	  * Array×ª»»³ÉString£¬ÒÔsDelimÎª¼ä¸ô·û
+	  * Arrayè½¬æ¢æˆStringï¼Œä»¥sDelimä¸ºé—´éš”ç¬¦
 	  * @param sSource
 	  * @param sDelim
 	  * @return
@@ -302,7 +302,7 @@ public class StringL {
 	 }
 
 	 /**
-	  * date×ª»»³Éstring£¬¼ä¸ô·ûsFormat <br>yyyy<b>sFormat</b>MM<b>sFormat</b>dd
+	  * dateè½¬æ¢æˆstringï¼Œé—´éš”ç¬¦sFormat <br>yyyy<b>sFormat</b>MM<b>sFormat</b>dd
 	  * @deprecated
 	  * @param dateDate
 	  * @param sFormat
@@ -316,7 +316,7 @@ public class StringL {
 	 }
 	 
 	 /**
-	  * ÒÑcode±àÂëdata×Ö·û´®
+	  * å·²codeç¼–ç dataå­—ç¬¦ä¸²
 	  * @param data
 	  * @param code
 	  * @return String[]
@@ -339,7 +339,7 @@ public class StringL {
 	 }
 
 	 /**
-	  * key=value*****delim<br>·µ»Øvalue
+	  * key=value*****delim<br>è¿”å›value
 	  * @param data
 	  * @param key
 	  * @param delim
@@ -362,7 +362,7 @@ public class StringL {
 	 }
 	 
 	 /**
-	  * key=value*****;<br>·µ»Øvalue<br>Ä¬ÈÏ·ÖºÅ½áÎ²
+	  * key=value*****;<br>è¿”å›value<br>é»˜è®¤åˆ†å·ç»“å°¾
 	  * @param data
 	  * @param key
 	  * @return
@@ -373,8 +373,8 @@ public class StringL {
 	 }
 	 
 	 /**
-	  * ·µ»ØdataÒÔkey1Îª·Ö¸ô·ûµÄ×Ö·û´®Êı×éÖĞ µÚorder-1¸öºÍµÚorder¸ökey2Ö®¼äµÄ×Ö·û´® ×é³ÉµÄÊı×é
-	  * toStringArray("12131;14151;" , ";" , "1" , 2)<br>·µ»Ø[2][4]
+	  * è¿”å›dataä»¥key1ä¸ºåˆ†éš”ç¬¦çš„å­—ç¬¦ä¸²æ•°ç»„ä¸­ ç¬¬order-1ä¸ªå’Œç¬¬orderä¸ªkey2ä¹‹é—´çš„å­—ç¬¦ä¸² ç»„æˆçš„æ•°ç»„
+	  * toStringArray("12131;14151;" , ";" , "1" , 2)<br>è¿”å›[2][4]
 	  * @param data
 	  * @param key1
 	  * @param key2
@@ -396,7 +396,7 @@ public class StringL {
 	 }
 	 
 	 /**
-	  * ÊÇ·ñÏàËÆ<br>isLike(Stringxxx,String)·µ»Øtrue
+	  * æ˜¯å¦ç›¸ä¼¼<br>isLike(Stringxxx,String)è¿”å›true
 	  * @param source
 	  * @param destination
 	  * @return
@@ -456,10 +456,10 @@ public class StringL {
 	 }
 	 
 	 /**
-	  * yyyy·Ö¸ô·ûMM¸ñÊ½×Ö·û´®Ôö¼ÓÖ¸¶¨ÔÂÊı»òÄêÊı
+	  * yyyyåˆ†éš”ç¬¦MMæ ¼å¼å­—ç¬¦ä¸²å¢åŠ æŒ‡å®šæœˆæ•°æˆ–å¹´æ•°
 	  * @param sAccountMonth
-	  * @param sType month»òyear
-	  * @param iStep Ôö¼ÓµÄÔÂÊı»òÄêÊı
+	  * @param sType monthæˆ–year
+	  * @param iStep å¢åŠ çš„æœˆæ•°æˆ–å¹´æ•°
 	  * @return
 	  */
 	 public static String getRelativeAccountMonth(String sAccountMonth, String sType, int iStep){
@@ -495,7 +495,7 @@ public class StringL {
 	 }
 	 
 	 /**
-	  * doubleÀàĞÍ»õ±Ò¸ñÊ½Êı×Ö×ª»»³É´óĞ´ÖĞÎÄ×Ö·û´®,×Ô¶¯È¡Á½Î»Ğ¡Êı
+	  * doubleç±»å‹è´§å¸æ ¼å¼æ•°å­—è½¬æ¢æˆå¤§å†™ä¸­æ–‡å­—ç¬¦ä¸²,è‡ªåŠ¨å–ä¸¤ä½å°æ•°
 	  * @param doubleNum
 	  * @return
 	  */
@@ -522,20 +522,20 @@ public class StringL {
 	   int iLength = 0;
 	   
 	   sBIT[0] = "";
-	   sBIT[1] = "Ê°";
-	   sBIT[2] = "°Û";
-	   sBIT[3] = "Çª";
+	   sBIT[1] = "æ‹¾";
+	   sBIT[2] = "ä½°";
+	   sBIT[3] = "ä»Ÿ";
 	   sUNIT[0] = "";
-	   sUNIT[1] = "Íò";
-	   sUNIT[2] = "ÒÚ";
-	   sUNIT[3] = "Íò";
-	   sCents[0] = "·Ö";
-	   sCents[1] = "½Ç";
+	   sUNIT[1] = "ä¸‡";
+	   sUNIT[2] = "äº¿";
+	   sUNIT[3] = "ä¸‡";
+	   sCents[0] = "åˆ†";
+	   sCents[1] = "è§’";
 	   
 
 	   if ((sNum.compareTo("0") == 0) || (sNum.compareTo("0.0") == 0) || (sNum.compareTo("0.00") == 0))
 	   {
-	     NtoC = "ÁãÔªÕû";
+	     NtoC = "é›¶å…ƒæ•´";
 	     return NtoC;
 	   }
 	   
@@ -560,36 +560,36 @@ public class StringL {
 	         switch (Integer.parseInt(sIntD.substring(j, j + 1)))
 	         {
 	         case 1: 
-	           NtoC = NtoC + "Ò¼" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "å£¹" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 2: 
-	           NtoC = NtoC + "·¡" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "è´°" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 3: 
-	           NtoC = NtoC + "Èş" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "å" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 4: 
-	           NtoC = NtoC + "ËÁ" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "è‚†" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 5: 
-	           NtoC = NtoC + "Îé" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "ä¼" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 6: 
-	           NtoC = NtoC + "Â½" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "é™†" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 7: 
-	           NtoC = NtoC + "Æâ" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "æŸ’" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 8: 
-	           NtoC = NtoC + "°Æ" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "æŒ" + sBIT[(sIntD.length() - j - 1)];
 	           break;
 	         case 9: 
-	           NtoC = NtoC + "¾Á" + sBIT[(sIntD.length() - j - 1)];
+	           NtoC = NtoC + "ç–" + sBIT[(sIntD.length() - j - 1)];
 	         
 	         }
 	         
 	       } else if ((j + 1 < sIntD.length()) && (sIntD.charAt(j + 1) != '0'))
-	         NtoC = NtoC + "Áã";
+	         NtoC = NtoC + "é›¶";
 	     }
 	     lStartPos += iLength;
 	     if (i < iCount)
@@ -605,7 +605,7 @@ public class StringL {
 	       NtoC = NtoC + sUNIT[(i - 1)];
 	   }
 	   if (NtoC.length() > 0) {
-	     NtoC = NtoC + "Ôª";
+	     NtoC = NtoC + "å…ƒ";
 	   }
 	   
 	   if (sNum.indexOf(".") > 0)
@@ -618,49 +618,49 @@ public class StringL {
 	         switch (Integer.parseInt(sDecD.substring(i, i + 1)))
 	         {
 	         case 1: 
-	           NtoC = NtoC + "Ò¼" + sCents[(1 - i)];
+	           NtoC = NtoC + "å£¹" + sCents[(1 - i)];
 	           break;
 	         case 2: 
-	           NtoC = NtoC + "·¡" + sCents[(1 - i)];
+	           NtoC = NtoC + "è´°" + sCents[(1 - i)];
 	           break;
 	         case 3: 
-	           NtoC = NtoC + "Èş" + sCents[(1 - i)];
+	           NtoC = NtoC + "å" + sCents[(1 - i)];
 	           break;
 	         case 4: 
-	           NtoC = NtoC + "ËÁ" + sCents[(1 - i)];
+	           NtoC = NtoC + "è‚†" + sCents[(1 - i)];
 	           break;
 	         case 5: 
-	           NtoC = NtoC + "Îé" + sCents[(1 - i)];
+	           NtoC = NtoC + "ä¼" + sCents[(1 - i)];
 	           break;
 	         case 6: 
-	           NtoC = NtoC + "Â½" + sCents[(1 - i)];
+	           NtoC = NtoC + "é™†" + sCents[(1 - i)];
 	           break;
 	         case 7: 
-	           NtoC = NtoC + "Æâ" + sCents[(1 - i)];
+	           NtoC = NtoC + "æŸ’" + sCents[(1 - i)];
 	           break;
 	         case 8: 
-	           NtoC = NtoC + "°Æ" + sCents[(1 - i)];
+	           NtoC = NtoC + "æŒ" + sCents[(1 - i)];
 	           break;
 	         case 9: 
-	           NtoC = NtoC + "¾Á" + sCents[(1 - i)];
+	           NtoC = NtoC + "ç–" + sCents[(1 - i)];
 	         
 	         }
 	         
 	       } else if (NtoC.length() > 0) {
-	         NtoC = NtoC + "Áã";
+	         NtoC = NtoC + "é›¶";
 	       }
 	     }
 	   } else {
-	     NtoC = NtoC + "Õû";
+	     NtoC = NtoC + "æ•´";
 	   }
 	   
-	   if (NtoC.substring(NtoC.length() - 1).compareTo("Áã") == 0)
+	   if (NtoC.substring(NtoC.length() - 1).compareTo("é›¶") == 0)
 	     NtoC = NtoC.substring(0, NtoC.length() - 1);
 	   return NtoC;
 	 }
 	 
 	 /**
-	  * ½ØÈ¡×Ö·û´®
+	  * æˆªå–å­—ç¬¦ä¸²
 	  * @param sSource
 	  * @param sBeginIdentifier
 	  * @param sEndIdentifier
@@ -671,7 +671,7 @@ public class StringL {
 	 }
 	 
 	/**
-	 * string(ÄêÔÂÈÕ)×ª»»Îªdate
+	 * string(å¹´æœˆæ—¥)è½¬æ¢ä¸ºdate
 	 * @param str
 	 * @return date
 	 */
@@ -716,8 +716,8 @@ public class StringL {
 	}
 	
 	/**
-	 * ·Ö¸î×Ö·û´®<br>
-	 * {1}2{1}2{1}2{1}·Ö¸îÎª×Ö·ûÊı×é[1][1][1][1]
+	 * åˆ†å‰²å­—ç¬¦ä¸²<br>
+	 * {1}2{1}2{1}2{1}åˆ†å‰²ä¸ºå­—ç¬¦æ•°ç»„[1][1][1][1]
 	 * @param str
 	 * @return String[]
 	 */
@@ -746,11 +746,11 @@ public class StringL {
 	}
 	
 	/**
-	 * [1=2][2=1][0=0]×ª»»Îª<br>
+	 * [1=2][2=1][0=0]è½¬æ¢ä¸º<br>
 	 * 1=2<br>
 	 * 2=1<br>
 	 * 0=0<br>
-	 * ÕâÖÖProperties
+	 * è¿™ç§Properties
 	 * @param str
 	 * @return Properties
 	 */
@@ -772,7 +772,7 @@ public class StringL {
 	}
 	
 	/**
-	 * ½²×Ö½ÚÊı×é×ª»¯Îª16½øÖÆ×Ö·û´®,toUpperCaseÎªtrue´óĞ´£¬toUpperCaseÎªfalseĞ¡Ğ´
+	 * è®²å­—èŠ‚æ•°ç»„è½¬åŒ–ä¸º16è¿›åˆ¶å­—ç¬¦ä¸²,toUpperCaseä¸ºtrueå¤§å†™ï¼ŒtoUpperCaseä¸ºfalseå°å†™
 	 * @param bytes
 	 * @param toUpperCase
 	 * @return String
@@ -790,7 +790,7 @@ public class StringL {
 	}
 
 	/**
-	 * ³ıÈ¥×Ö·û´®¿ªÍ·µÄ·Ö¸ô·û
+	 * é™¤å»å­—ç¬¦ä¸²å¼€å¤´çš„åˆ†éš”ç¬¦
 	 * @param str
 	 * @return String
 	 */
@@ -809,7 +809,7 @@ public class StringL {
 	}
 
 	/**
-	 * ³ıÈ¥×Ö·û´®½áÎ²µÄ·Ö¸ô·û
+	 * é™¤å»å­—ç¬¦ä¸²ç»“å°¾çš„åˆ†éš”ç¬¦
 	 * @param str
 	 * @return String
 	 */
@@ -828,7 +828,7 @@ public class StringL {
 	}
 
 	/**
-	 * ³ıÈ¥×Ö·û´®¿ªÍ·½áÎ²µÄ·Ö¸ô·û
+	 * é™¤å»å­—ç¬¦ä¸²å¼€å¤´ç»“å°¾çš„åˆ†éš”ç¬¦
 	 * @param str
 	 * @return String
 	 */
@@ -841,7 +841,7 @@ public class StringL {
 	}
 
 	/**
-	 * ¼ì²âÊÇ·ñÎªnull»ò"",ÊÇ·µ»Øtrue
+	 * æ£€æµ‹æ˜¯å¦ä¸ºnullæˆ–"",æ˜¯è¿”å›true
 	 * @param str
 	 * @return boolean
 	 */
@@ -850,7 +850,7 @@ public class StringL {
 	}
 
 	/**
-	 * ¼ì²âÊÇ·ñÎªnull»ò""»ò¿ªÍ·Îª·Ö¸ô·û,ÊÇ·µ»Øtrue
+	 * æ£€æµ‹æ˜¯å¦ä¸ºnullæˆ–""æˆ–å¼€å¤´ä¸ºåˆ†éš”ç¬¦,æ˜¯è¿”å›true
 	 * @param str
 	 * @return boolean
 	 */
@@ -867,7 +867,7 @@ public class StringL {
 	}
 
 	/**
-	 * ¼ì²âÊÇ·ñÎªnull»ò"",ÊÇ·µ»Øtrue
+	 * æ£€æµ‹æ˜¯å¦ä¸ºnullæˆ–"",æ˜¯è¿”å›true
 	 * @param o Object 
 	 * @return boolean
 	 */
@@ -876,7 +876,7 @@ public class StringL {
 	}
 
 	/**
-	 * ¼ì²âÊÇ·ñÎªnull»ò""»ò¿ªÍ·Îª·Ö¸ô·û,ÊÇ·µ»Øtrue
+	 * æ£€æµ‹æ˜¯å¦ä¸ºnullæˆ–""æˆ–å¼€å¤´ä¸ºåˆ†éš”ç¬¦,æ˜¯è¿”å›true
 	 * @param str
 	 * @return boolean
 	 */
@@ -885,7 +885,7 @@ public class StringL {
 	}
 	
 	/**
-	 * ½ØÈ¡×Ö·û´®<br>ºóÃæ¼Ó...
+	 * æˆªå–å­—ç¬¦ä¸²<br>åé¢åŠ ...
 	 */
 	public static String screenStr(String str,int len){
 
@@ -901,29 +901,29 @@ public class StringL {
 	
 	/***
 	 * @param 
-	 * day  ÈÕÆÚ×Ö·û´®
-	 * ft   ¸ñÊ½(°´ÕÕ·ÖÖÓ¡¢Ğ¡Ê±¡¢Ìì¡¢ÔÂ¡¢Äê)
-	 * x    ¼Ó¼¸
-	 * @return  ÈÕÆÚ×Ö·û´®
+	 * day  æ—¥æœŸå­—ç¬¦ä¸²
+	 * ft   æ ¼å¼(æŒ‰ç…§åˆ†é’Ÿã€å°æ—¶ã€å¤©ã€æœˆã€å¹´)
+	 * x    åŠ å‡ 
+	 * @return  æ—¥æœŸå­—ç¬¦ä¸²
 	 *  
 	 * */
 	public static String addDateFormat(String day, int ft,int x,String fmt){
 		
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");// 24Ğ¡Ê±ÖÆ  
-        SimpleDateFormat format1 = new SimpleDateFormat(fmt);// 24Ğ¡Ê±ÖÆ  
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");// 24å°æ—¶åˆ¶  
+        SimpleDateFormat format1 = new SimpleDateFormat(fmt);// 24å°æ—¶åˆ¶  
         int caft=0;
-        if(ft==0){//Ãë
+        if(ft==0){//ç§’
         	caft = Calendar.SECOND;
         }
-        else if(ft==1){//·ÖÖÓ
+        else if(ft==1){//åˆ†é’Ÿ
         	caft = Calendar.MINUTE;
-        }else if(ft==2){//Ğ¡Ê±
+        }else if(ft==2){//å°æ—¶
         	caft = Calendar.HOUR;
-        }else if(ft==3){//Ìì
+        }else if(ft==3){//å¤©
         	caft = Calendar.DATE;
-        }else if(ft==4){//ÔÂ
+        }else if(ft==4){//æœˆ
         	caft = Calendar.MONTH;
-        }else {//Äê
+        }else {//å¹´
         	caft = Calendar.YEAR;
         }
         day = day.replaceAll("-", "/");
@@ -935,32 +935,32 @@ public class StringL {
         }    
         if (date == null)    
             return "";    
-        //System.out.println("front:" + format.format(date)); //ÏÔÊ¾ÊäÈëµÄÈÕÆÚ   
+        //System.out.println("front:" + format.format(date)); //æ˜¾ç¤ºè¾“å…¥çš„æ—¥æœŸ   
         Calendar cal = Calendar.getInstance();    
         cal.setTime(date);    
-        cal.add(caft, x);// 24Ğ¡Ê±ÖÆ    
+        cal.add(caft, x);// 24å°æ—¶åˆ¶    
         date = cal.getTime();    
-        //System.out.println("after:" + format.format(date));  //ÏÔÊ¾¸üĞÂºóµÄÈÕÆÚ  
+        //System.out.println("after:" + format.format(date));  //æ˜¾ç¤ºæ›´æ–°åçš„æ—¥æœŸ  
         cal = null;    
         return format1.format(date);    	   
 	}
 	
 	/***
 	 * @param 
-	 * day  ÈÕÆÚ×Ö·û´®
-	 * ft   ¸ñÊ½(°´ÕÕ·ÖÖÓ¡¢Ğ¡Ê±¡¢Ìì¡¢ÔÂ¡¢Äê)
-	 * x    ¼Ó¼¸
-	 * @return  ÈÕÆÚ×Ö·û´®
+	 * day  æ—¥æœŸå­—ç¬¦ä¸²
+	 * ft   æ ¼å¼(æŒ‰ç…§åˆ†é’Ÿã€å°æ—¶ã€å¤©ã€æœˆã€å¹´)
+	 * x    åŠ å‡ 
+	 * @return  æ—¥æœŸå­—ç¬¦ä¸²
 	 *  
 	 * */
 	public static String addDateFormat(String day, int ft,int x){		        
-        return addDateFormat(day, ft, x, "yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");    	   
+        return addDateFormat(day, ft, x, "yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");    	   
 	}
 	
 	/**
-	 * yyyy-MM-dd HH:mm:ss str¸ñÊ½
+	 * yyyy-MM-dd HH:mm:ss stræ ¼å¼
 	 * @param str
-	 * @return Ê±¼ä¼ä¸ô
+	 * @return æ—¶é—´é—´éš”
 	 */
 	public static String getBetweenTime(String str){
 		SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   
@@ -969,25 +969,25 @@ public class StringL {
 		try {
 			java.util.Date begin = new Date();
 			java.util.Date end = dfs.parse(str);   
-			long between = (end.getTime()-begin.getTime())/1000;//³ıÒÔ1000ÊÇÎªÁË×ª»»³ÉÃë   
+			long between = (end.getTime()-begin.getTime())/1000;//é™¤ä»¥1000æ˜¯ä¸ºäº†è½¬æ¢æˆç§’   
 			long day = between/(24*3600);   
 			long hour = (between - day * 86400) / 3600;   
 			long minute =  (between - day * 86400 - hour * 3600) / 60;   
 			long second = between - day * 86400 - hour * 3600 - minute * 60;   
 
 			if(day<0)
-				sReturn = "ÒÑ½áÊø";
+				sReturn = "å·²ç»“æŸ";
 			else{
 				if(day>0)
-					sReturn = day+"Ìì"+hour+"Ğ¡Ê±"+minute+"·Ö"+second+"Ãë";
+					sReturn = day+"å¤©"+hour+"å°æ—¶"+minute+"åˆ†"+second+"ç§’";
 				if(day==0)
-					sReturn = hour+"Ğ¡Ê±"+minute+"·Ö"+second+"Ãë";
+					sReturn = hour+"å°æ—¶"+minute+"åˆ†"+second+"ç§’";
 				if(hour==0)
-					sReturn = minute+"·Ö"+second+"Ãë";
+					sReturn = minute+"åˆ†"+second+"ç§’";
 				if(minute==0)
-					sReturn = second+"Ãë";
+					sReturn = second+"ç§’";
 				if(second<0)
-					sReturn = "ÒÑ¿ªÊ¼";
+					sReturn = "å·²å¼€å§‹";
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -996,8 +996,8 @@ public class StringL {
 	}
 	
 	/**
-	 * »ñÈ¡Ëæ»ú×Ö·û´®<br>length±íÊ¾Éú³É×Ö·û´®µÄ³¤¶È<br>type:1 Ö»ÓĞÊı×Ö
-	 * <br>type:2 ×ÖÄ¸Êı×Ö
+	 * è·å–éšæœºå­—ç¬¦ä¸²<br>lengthè¡¨ç¤ºç”Ÿæˆå­—ç¬¦ä¸²çš„é•¿åº¦<br>type:1 åªæœ‰æ•°å­—
+	 * <br>type:2 å­—æ¯æ•°å­—
 	 * @param length
 	 * @param type
 	 * @return
@@ -1021,9 +1021,9 @@ public class StringL {
 	}
 	
 	/**
-	 * ×Ö½ÚÁ÷µ½ÎÄ±¾×ª»»
+	 * å­—èŠ‚æµåˆ°æ–‡æœ¬è½¬æ¢
 	 * @param inStream
-	 * @param charsetName ±àÂë·½Ê½
+	 * @param charsetName ç¼–ç æ–¹å¼
 	 * @return String
 	 */
 	public static String inputStream2String(InputStream inStream,String charsetName){
@@ -1048,7 +1048,7 @@ public class StringL {
 	}	
 	
 	/**
-	 * ÎÄ±¾µ½Á÷µÄ×ª»»
+	 * æ–‡æœ¬åˆ°æµçš„è½¬æ¢
 	 * @param content
 	 * @param charsetName
 	 */
@@ -1064,7 +1064,7 @@ public class StringL {
 	}
 	
 	/**
-	 * »ñµÃsDelimÔÚsSourceÖĞµÄÊıÁ¿
+	 * è·å¾—sDelimåœ¨sSourceä¸­çš„æ•°é‡
 	 * @param sSource
 	 * @param sDelim
 	 * @return
@@ -1080,7 +1080,7 @@ public class StringL {
 	
 	/**
 	 * "{{\"1\",\"2\"},{\"3\",\"4\"}}"<br>
-	 * ×ª»»Îª×Ö·û´®Êı×é
+	 * è½¬æ¢ä¸ºå­—ç¬¦ä¸²æ•°ç»„
 	 * @param s
 	 * @return
 	 */

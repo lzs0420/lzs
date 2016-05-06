@@ -12,17 +12,17 @@ import javax.imageio.ImageIO;
 
 public class Code {
 	
-    // Í¼Æ¬µÄ¿í¶È¡£
+    // å›¾ç‰‡çš„å®½åº¦ã€‚
     private int width = 160;
-    // Í¼Æ¬µÄ¸ß¶È¡£
+    // å›¾ç‰‡çš„é«˜åº¦ã€‚
     private int height = 38;
-    // ÑéÖ¤Âë×Ö·û¸öÊı
+    // éªŒè¯ç å­—ç¬¦ä¸ªæ•°
     private int codeCount = 4;
-    // ÑéÖ¤Âë¸ÉÈÅÏßÊı
+    // éªŒè¯ç å¹²æ‰°çº¿æ•°
     private int lineCount = 20;
-    // ÑéÖ¤Âë
+    // éªŒè¯ç 
     private String code = null;
-    // ÑéÖ¤ÂëÍ¼Æ¬Buffer
+    // éªŒè¯ç å›¾ç‰‡Buffer
     private BufferedImage buffImg = null;
     Random random = new Random();
 
@@ -51,28 +51,28 @@ public class Code {
         creatImage();
     }
 
-    // Éú³ÉÍ¼Æ¬
+    // ç”Ÿæˆå›¾ç‰‡
     private void creatImage() {
-        int fontWidth = width / codeCount;// ×ÖÌåµÄ¿í¶È
-        int fontHeight = height - 5;// ×ÖÌåµÄ¸ß¶È
+        int fontWidth = width / codeCount;// å­—ä½“çš„å®½åº¦
+        int fontHeight = height - 5;// å­—ä½“çš„é«˜åº¦
         int codeY = height - 8;
 
-        // Í¼Ïñbuffer
+        // å›¾åƒbuffer
         buffImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics g = buffImg.getGraphics();
         //Graphics2D g = buffImg.createGraphics();
-        // ÉèÖÃ±³¾°É«
+        // è®¾ç½®èƒŒæ™¯è‰²
         g.setColor(getRandColor(200, 250));
         g.fillRect(0, 0, width, height);
         
         
         
-        // ÉèÖÃ×ÖÌå
+        // è®¾ç½®å­—ä½“
         //Font font1 = getFont(fontHeight);
         Font font = new Font("Fixedsys", Font.BOLD, fontHeight);
         g.setFont(font);
 
-        // ÉèÖÃ¸ÉÈÅÏß
+        // è®¾ç½®å¹²æ‰°çº¿
         for (int i = 0; i < lineCount; i++) {
             int xs = random.nextInt(width);
             int ys = random.nextInt(height);
@@ -82,8 +82,8 @@ public class Code {
             g.drawLine(xs, ys, xe, ye);
         }
 
-        // Ìí¼ÓÔëµã
-        float yawpRate = 0.01f;// ÔëÉùÂÊ
+        // æ·»åŠ å™ªç‚¹
+        float yawpRate = 0.01f;// å™ªå£°ç‡
         int area = (int) (yawpRate * width * height);
         for (int i = 0; i < area; i++) {
             int x = random.nextInt(width);
@@ -93,13 +93,13 @@ public class Code {
         }
 
 
-        String str1 = randomStr(codeCount);// µÃµ½Ëæ»ú×Ö·û
+        String str1 = randomStr(codeCount);// å¾—åˆ°éšæœºå­—ç¬¦
         this.code = str1;
         for (int i = 0; i < codeCount; i++) {
             String strRand = str1.substring(i, i + 1);
             g.setColor(getRandColor(1, 255));
             // g.drawString(a,x,y);
-            // aÎªÒª»­³öÀ´µÄ¶«Î÷£¬xºÍy±íÊ¾Òª»­µÄ¶«Î÷×î×ó²à×Ö·ûµÄ»ùÏßÎ»ÓÚ´ËÍ¼ĞÎÉÏÏÂÎÄ×ø±êÏµµÄ (x, y) Î»ÖÃ´¦
+            // aä¸ºè¦ç”»å‡ºæ¥çš„ä¸œè¥¿ï¼Œxå’Œyè¡¨ç¤ºè¦ç”»çš„ä¸œè¥¿æœ€å·¦ä¾§å­—ç¬¦çš„åŸºçº¿ä½äºæ­¤å›¾å½¢ä¸Šä¸‹æ–‡åæ ‡ç³»çš„ (x, y) ä½ç½®å¤„
             
             g.drawString(strRand, i*fontWidth+3, codeY);
         }
@@ -107,9 +107,9 @@ public class Code {
 
     }
 
-    // µÃµ½Ëæ»ú×Ö·û
+    // å¾—åˆ°éšæœºå­—ç¬¦
     private String randomStr(int n) {
-        String str1 = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890";//IºÍl²»Òª
+        String str1 = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz1234567890";//Iå’Œlä¸è¦
         String str2 = "";
         int len = str1.length() - 1;
         double r;
@@ -120,8 +120,8 @@ public class Code {
         return str2;
     }
 
-    // µÃµ½Ëæ»úÑÕÉ«
-    private Color getRandColor(int fc, int bc) {// ¸ø¶¨·¶Î§»ñµÃËæ»úÑÕÉ«
+    // å¾—åˆ°éšæœºé¢œè‰²
+    private Color getRandColor(int fc, int bc) {// ç»™å®šèŒƒå›´è·å¾—éšæœºé¢œè‰²
         if (fc > 255)
             fc = 255;
         if (bc > 255)
@@ -133,7 +133,7 @@ public class Code {
     }
     
     /**
-     * ²úÉúËæ»ú×ÖÌå
+     * äº§ç”Ÿéšæœºå­—ä½“
      */
     private Font getFont(int size) {
         Random random = new Random();
@@ -146,7 +146,7 @@ public class Code {
         return font[random.nextInt(5)];
     }
     
-    // Å¤Çú·½·¨
+    // æ‰­æ›²æ–¹æ³•
     private void shear(Graphics g, int w1, int h1, Color color) {
         shearX(g, w1, h1, color);
         shearY(g, w1, h1, color);
@@ -215,11 +215,11 @@ public class Code {
         return code.toLowerCase();
     }
     
-    //Ê¹ÓÃ·½·¨
+    //ä½¿ç”¨æ–¹æ³•
  /*public void getCode3(HttpServletRequest req, HttpServletResponse response,HttpSession session) throws IOException{
-        // ÉèÖÃÏìÓ¦µÄÀàĞÍ¸ñÊ½ÎªÍ¼Æ¬¸ñÊ½
+        // è®¾ç½®å“åº”çš„ç±»å‹æ ¼å¼ä¸ºå›¾ç‰‡æ ¼å¼
             response.setContentType("image/jpeg");
-            //½ûÖ¹Í¼Ïñ»º´æ¡£
+            //ç¦æ­¢å›¾åƒç¼“å­˜ã€‚
             response.setHeader("Pragma", "no-cache");
             response.setHeader("Cache-Control", "no-cache");
             response.setDateHeader("Expires", 0);

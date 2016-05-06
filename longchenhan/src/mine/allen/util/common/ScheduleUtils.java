@@ -13,19 +13,19 @@ public class ScheduleUtils {
 	}
 	
 	public void work() throws ParseException{    	
-		System.out.println("ÎÒÔÚ¹¤×÷");
-		//¼ÙÈçÕâÊÇÄãµÄÈÎÎñ£¬Á¢¼´Ö´ĞĞ    	
+		System.out.println("æˆ‘åœ¨å·¥ä½œ");
+		//å‡å¦‚è¿™æ˜¯ä½ çš„ä»»åŠ¡ï¼Œç«‹å³æ‰§è¡Œ    	
 		Timer timer = new Timer();        
 		MyTask myTask = new MyTask();        
-		//ÔÚ2012-05-01 01:01:01Ö´ĞĞ´ËÈÎÎñ,Ã¿´Î¼ä¸ô2ÃëÔÙ´ÎÖ´ĞĞ        
+		//åœ¨2012-05-01 01:01:01æ‰§è¡Œæ­¤ä»»åŠ¡,æ¯æ¬¡é—´éš”2ç§’å†æ¬¡æ‰§è¡Œ        
 		timer.schedule(myTask, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2016-01-22 14:57:00"), 2000);    
 	}    
 	class MyTask extends TimerTask{    	
 		int i = 0;        
 		@Override        
 		public void run(){            
-			System.out.println("ÎÒÔÚ¹¤×÷");
-			//¼ÙÈçÕâÊÇÄãµÄÈÎÎñ       
+			System.out.println("æˆ‘åœ¨å·¥ä½œ");
+			//å‡å¦‚è¿™æ˜¯ä½ çš„ä»»åŠ¡       
 		}    
 	}
 }

@@ -18,20 +18,20 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
- * ¹ØÓÚÈÕÖ¾µÄÒ»Ğ©²Ù×÷
+ * å…³äºæ—¥å¿—çš„ä¸€äº›æ“ä½œ
  * @author Allen
  * @version 1.0
  */
 public class LogUtils {
 	
-	/**µ¥ÀıÄ£Ê½£¬Ë«ÖØËø£¬ÊµÀı*/
+	/**å•ä¾‹æ¨¡å¼ï¼ŒåŒé‡é”ï¼Œå®ä¾‹*/
 	private static LogUtils Logutils=null;
-	/**Logger¶ÔÏó*/
+	/**Loggerå¯¹è±¡*/
 	private static Logger logger;
-	/**Log¶ÔÏó*/
+	/**Logå¯¹è±¡*/
 	private static Log log;
 	
-	/**µ¥ÀıÄ£Ê½£¬Ë«ÖØËø£¬³õÊ¼»¯·½·¨*/
+	/**å•ä¾‹æ¨¡å¼ï¼ŒåŒé‡é”ï¼Œåˆå§‹åŒ–æ–¹æ³•*/
     private LogUtils(){
         //do something
     	logger = Logger.getLogger(""); 
@@ -39,7 +39,7 @@ public class LogUtils {
     }
 
     /**
-     * ·µ»ØLogger¶ÔÏó
+     * è¿”å›Loggerå¯¹è±¡
      * @return Logger
      */
     public Logger getLogger() {
@@ -47,14 +47,14 @@ public class LogUtils {
 	}
 
     /**
-     * ·µ»ØLog¶ÔÏó
+     * è¿”å›Logå¯¹è±¡
      * @return Log
      */
     public Log getLog() {
 		return log;
 	}
 
-	/**µ¥ÀıÄ£Ê½£¬Ë«ÖØËø£¬»ñÈ¡ÊµÀı·½·¨*/
+	/**å•ä¾‹æ¨¡å¼ï¼ŒåŒé‡é”ï¼Œè·å–å®ä¾‹æ–¹æ³•*/
     public static LogUtils getInstance(){
         if(Logutils==null){
             synchronized(LogUtils.class){
@@ -66,26 +66,26 @@ public class LogUtils {
         return Logutils;
     }
     
-    /**ÒÔconfigÎÄ¼şÂ·¾¶³õÊ¼»¯log<br>²»´æÔÚÒÔÄ¬ÈÏÅäÖÃ³õÊ¼»¯
+    /**ä»¥configæ–‡ä»¶è·¯å¾„åˆå§‹åŒ–log<br>ä¸å­˜åœ¨ä»¥é»˜è®¤é…ç½®åˆå§‹åŒ–
      * */
     public static void loadConfig(String config){
     	String filePath = FileUtils.getConfigAbsolutepath();
     	filePath = FileUtils.getFullName(filePath, config);
     	
-    	//DOMConfigurator.configure("E:/study/log4j/log4j.xml");//¼ÓÔØ.xmlÎÄ¼ş 
+    	//DOMConfigurator.configure("E:/study/log4j/log4j.xml");//åŠ è½½.xmlæ–‡ä»¶ 
     	if (FileUtils.isFileExist(config)) {  
-            System.out.println("Ê¹ÓÃ: " + config+"³õÊ¼»¯ÈÕÖ¾ÉèÖÃĞÅÏ¢");  
+            System.out.println("ä½¿ç”¨: " + config+"åˆå§‹åŒ–æ—¥å¿—è®¾ç½®ä¿¡æ¯");  
             PropertyConfigurator.configure(config);  
         }else if (FileUtils.isFileExist(filePath)) {  
-            System.out.println("Ê¹ÓÃ: " + filePath+"³õÊ¼»¯ÈÕÖ¾ÉèÖÃĞÅÏ¢");  
+            System.out.println("ä½¿ç”¨: " + filePath+"åˆå§‹åŒ–æ—¥å¿—è®¾ç½®ä¿¡æ¯");  
             PropertyConfigurator.configure(filePath);  
         }else {  
-            System.err.println("*** " + config + " ÎÄ¼şÃ»ÓĞÕÒµ½£¬*** " + filePath + " ÎÄ¼şÃ»ÓĞÕÒµ½, ËùÒÔÊ¹ÓÃ BasicConfigurator³õÊ¼»¯");  
+            System.err.println("*** " + config + " æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°ï¼Œ*** " + filePath + " æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°, æ‰€ä»¥ä½¿ç”¨ BasicConfiguratoråˆå§‹åŒ–");  
             BasicConfigurator.configure();  
         }  
     }
     
-    /**Ìæ»»³õÊ¼»¯ÎÄ¼şconfig£¬Í¬Ê±Ğ´Èëconfig
+    /**æ›¿æ¢åˆå§‹åŒ–æ–‡ä»¶configï¼ŒåŒæ—¶å†™å…¥config
      * */
     public static void replaceAndWriteConfig(String config ,HashMap<String, String> hashMap){
     	String filePath = FileUtils.getConfigAbsolutepath();
@@ -99,7 +99,7 @@ public class LogUtils {
         		Properties prop = new Properties();
         		prop.load(inStream);
         		inStream.close();
-        		System.out.println("===================¶ÁÈ¡ÅäÖÃÎÄ¼ş³É¹¦£¡======================"); 
+        		System.out.println("===================è¯»å–é…ç½®æ–‡ä»¶æˆåŠŸï¼======================"); 
         		Iterator<Entry<Object, Object>> iterator = prop.entrySet().iterator();
         		while(iterator.hasNext()){
         			Entry<Object, Object> entry = iterator.next();
@@ -112,23 +112,23 @@ public class LogUtils {
         				if(StringUtils.indexOf(entryvalue, entrykey2)>-1){
         					prop.setProperty(StringL.toString(entry.getKey()), StringL.replace(entryvalue,
         							StringL.toString(entry2.getKey()),entrykey2));
-                			System.out.println("===================Ìæ»»"+entry.getKey()+" " + entry.getValue()+"³É¹¦£¡======================"); 
+                			System.out.println("===================æ›¿æ¢"+entry.getKey()+" " + entry.getValue()+"æˆåŠŸï¼======================"); 
         				}
         			}
         		}
         		FileOutputStream outStream = new FileOutputStream(filePath); 
         		prop.store(outStream, "Copyright (c) Allen"); 
-        		System.out.println("===================Ìæ»»ÅäÖÃÎÄ¼ş³É¹¦£¡======================"); 
+        		System.out.println("===================æ›¿æ¢é…ç½®æ–‡ä»¶æˆåŠŸï¼======================"); 
         		outStream.close();
     		} catch (Exception e) {
-    			throw new RuntimeException("¶ÁÈ¡ÅäÖÃÎÄ¼şÒì³£",e);
+    			throw new RuntimeException("è¯»å–é…ç½®æ–‡ä»¶å¼‚å¸¸",e);
     		}
         }else {  
-            System.err.println("*** " + config + " ÎÄ¼şÃ»ÓĞÕÒµ½£¬*** " + filePath + " ÎÄ¼şÃ»ÓĞÕÒµ½£¬ÎŞ·¨Ìæ»»"); 
+            System.err.println("*** " + config + " æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°ï¼Œ*** " + filePath + " æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°ï¼Œæ— æ³•æ›¿æ¢"); 
         }  
     }
     
-    /**Ìæ»»³õÊ¼»¯ÎÄ¼şconfig£¬µ«²»Ğ´Èëconfig
+    /**æ›¿æ¢åˆå§‹åŒ–æ–‡ä»¶configï¼Œä½†ä¸å†™å…¥config
      * */
     public static Properties replaceConfig(String config ,HashMap<String, String> hashMap){
     	Properties prop = null;
@@ -144,7 +144,7 @@ public class LogUtils {
         		prop = new Properties();
         		prop.load(inStream);
         		inStream.close();
-        		System.out.println("===================¶ÁÈ¡ÅäÖÃÎÄ¼ş³É¹¦£¡======================"); 
+        		System.out.println("===================è¯»å–é…ç½®æ–‡ä»¶æˆåŠŸï¼======================"); 
         		Iterator<Entry<Object, Object>> iterator = prop.entrySet().iterator();
         		while(iterator.hasNext()){
         			Entry<Object, Object> entry = iterator.next();
@@ -157,21 +157,21 @@ public class LogUtils {
         				if(StringUtils.indexOf(entryvalue, entrykey2)>-1){
         					prop.setProperty(StringL.toString(entry.getKey()), StringL.replace(entryvalue,
         							StringL.toString(entry2.getKey()),entrykey2));
-                			System.out.println("===================Ìæ»»"+entry.getKey()+" " + entry.getValue()+"³É¹¦£¡======================"); 
+                			System.out.println("===================æ›¿æ¢"+entry.getKey()+" " + entry.getValue()+"æˆåŠŸï¼======================"); 
         				}
         			}
         		}
     		} catch (Exception e) {
-    			throw new RuntimeException("¶ÁÈ¡ÅäÖÃÎÄ¼şÒì³£",e);
+    			throw new RuntimeException("è¯»å–é…ç½®æ–‡ä»¶å¼‚å¸¸",e);
     		}
         }else {  
-            System.err.println("*** " + config + " ÎÄ¼şÃ»ÓĞÕÒµ½£¬*** " + filePath + " ÎÄ¼şÃ»ÓĞÕÒµ½£¬ÎŞ·¨Ìæ»»");
+            System.err.println("*** " + config + " æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°ï¼Œ*** " + filePath + " æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°ï¼Œæ— æ³•æ›¿æ¢");
         }  
     	return prop;
     }
     
     /**
-     * Ê¹ÓÃÊä³öÁ÷Êä³öµ½Ö¸¶¨ÎÄ¼ş
+     * ä½¿ç”¨è¾“å‡ºæµè¾“å‡ºåˆ°æŒ‡å®šæ–‡ä»¶
      * @param message
      * @param type
      */
@@ -219,27 +219,27 @@ public class LogUtils {
 	    	e.printStackTrace();
 	    }
 	}
-	/**infoÊä³ö*/
+	/**infoè¾“å‡º*/
 	public static void infoPrint(String message) {
 		logPrint(message,"info",null);
 	}
-	/**debugÊä³ö*/
+	/**debugè¾“å‡º*/
 	public static void debugPrint(String message) {
 		logPrint(message,"debug",null);
 	}
-	/**errorÊä³ö*/
+	/**errorè¾“å‡º*/
 	public static void errorPrint(String message) {
 		logPrint(message,"error",null);
 	}
-	/**infoÊä³ö*/
+	/**infoè¾“å‡º*/
 	public static void infoPrint(String message,Throwable t) {
 		logPrint(message,"info",t);
 	}
-	/**debugÊä³ö*/
+	/**debugè¾“å‡º*/
 	public static void debugPrint(String message,Throwable t) {
 		logPrint(message,"debug",t);
 	}
-	/**errorÊä³ö*/
+	/**errorè¾“å‡º*/
 	public static void errorPrint(String message,Throwable t) {
 		logPrint(message,"error",t);
 	}

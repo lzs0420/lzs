@@ -18,30 +18,30 @@ import javax.sql.DataSource;
 
 public class contextDB {
 	/**
-	 * Êı¾İ¿âÁ¬½Ó¶ÔÏó
+	 * æ•°æ®åº“è¿æ¥å¯¹è±¡
 	 */
 	private Connection connection;  
 	/**
-	 * Êı¾İ¿âÖ´ĞĞSQL¶ÔÏó
+	 * æ•°æ®åº“æ‰§è¡ŒSQLå¯¹è±¡
 	 */
     private PreparedStatement pstmt;
     /**
-	 * Êı¾İ¿â½á¹û¼¯¶ÔÏó
+	 * æ•°æ®åº“ç»“æœé›†å¯¹è±¡
 	 */
     private ResultSet resultSet;  
 	
     /**
-     * È¡µÃÊı¾İ¿âÁ¬½Ó
-     * Í¨¹ıcontext.xmlµÄÅäÖÃ
+     * å–å¾—æ•°æ®åº“è¿æ¥
+     * é€šè¿‡context.xmlçš„é…ç½®
      * @return Connection
      */
 	public Connection getConnection(){
 		try {      
-	        //³õÊ¼»¯²éÕÒÃüÃû¿Õ¼ä
+	        //åˆå§‹åŒ–æŸ¥æ‰¾å‘½åç©ºé—´
 	        Context ctx = new InitialContext();  
-	        //²ÎÊıjava:/comp/envÎª¹Ì¶¨Â·¾¶   
+	        //å‚æ•°java:/comp/envä¸ºå›ºå®šè·¯å¾„   
 	        Context envContext = (Context)ctx.lookup("java:/comp/env"); 
-	        //²ÎÊıjdbc/mysqldsÎªÊı¾İÔ´ºÍJNDI°ó¶¨µÄÃû×Ö
+	        //å‚æ•°jdbc/mysqldsä¸ºæ•°æ®æºå’ŒJNDIç»‘å®šçš„åå­—
 	        DataSource ds = (DataSource)envContext.lookup("jdbc/mysql"); 
 	        
 	        connection = ds.getConnection();   
@@ -53,7 +53,7 @@ public class contextDB {
 	}
 	
 	/** 
-     * Ôö¼Ó¡¢É¾³ı¡¢¸Ä 
+     * å¢åŠ ã€åˆ é™¤ã€æ”¹ 
      * @param sql 
      * @param params 
      * @return 
@@ -75,7 +75,7 @@ public class contextDB {
     }  
   
     /** 
-     * ²éÑ¯µ¥Ìõ¼ÇÂ¼ 
+     * æŸ¥è¯¢å•æ¡è®°å½• 
      * @param sql 
      * @param params 
      * @return 
@@ -90,7 +90,7 @@ public class contextDB {
                 pstmt.setObject(index++, params.get(i));  
             }  
         }  
-        resultSet = pstmt.executeQuery();//·µ»Ø²éÑ¯½á¹û  
+        resultSet = pstmt.executeQuery();//è¿”å›æŸ¥è¯¢ç»“æœ  
         ResultSetMetaData metaData = resultSet.getMetaData();  
         int col_len = metaData.getColumnCount();  
         if(resultSet.next()){  
@@ -106,7 +106,7 @@ public class contextDB {
         return map;  
     }  
   
-    /**²éÑ¯¶àÌõ¼ÇÂ¼ 
+    /**æŸ¥è¯¢å¤šæ¡è®°å½• 
      * @param sql 
      * @param params 
      * @return 
@@ -140,7 +140,7 @@ public class contextDB {
         return list;  
     }  
   
-    /**Í¨¹ı·´Éä»úÖÆ²éÑ¯µ¥Ìõ¼ÇÂ¼ 
+    /**é€šè¿‡åå°„æœºåˆ¶æŸ¥è¯¢å•æ¡è®°å½• 
      * @param sql 
      * @param params 
      * @param cls 
@@ -161,7 +161,7 @@ public class contextDB {
         ResultSetMetaData metaData  = resultSet.getMetaData();  
         int cols_len = metaData.getColumnCount();  
         while(resultSet.next()){  
-            //Í¨¹ı·´Éä»úÖÆ´´½¨Ò»¸öÊµÀı  
+            //é€šè¿‡åå°„æœºåˆ¶åˆ›å»ºä¸€ä¸ªå®ä¾‹  
             resultObject = cls.newInstance();  
             for(int i = 0; i<cols_len; i++){
                 String cols_name = metaData.getColumnName(i+1);  
@@ -170,7 +170,7 @@ public class contextDB {
                     cols_value = "";  
                 }  
                 Field field = cls.getDeclaredField(cols_name);  
-                field.setAccessible(true); //´ò¿ªjavabeanµÄ·ÃÎÊÈ¨ÏŞ  
+                field.setAccessible(true); //æ‰“å¼€javabeançš„è®¿é—®æƒé™  
                 field.set(resultObject, cols_value);  
             }  
         }  
@@ -178,7 +178,7 @@ public class contextDB {
   
     }  
   
-    /**Í¨¹ı·´Éä»úÖÆ²éÑ¯¶àÌõ¼ÇÂ¼ 
+    /**é€šè¿‡åå°„æœºåˆ¶æŸ¥è¯¢å¤šæ¡è®°å½• 
      * @param sql  
      * @param params 
      * @param cls 
@@ -199,7 +199,7 @@ public class contextDB {
         ResultSetMetaData metaData  = resultSet.getMetaData();  
         int cols_len = metaData.getColumnCount();  
         while(resultSet.next()){  
-            //Í¨¹ı·´Éä»úÖÆ´´½¨Ò»¸öÊµÀı  
+            //é€šè¿‡åå°„æœºåˆ¶åˆ›å»ºä¸€ä¸ªå®ä¾‹  
             T resultObject = cls.newInstance();  
             for(int i = 0; i<cols_len; i++){  
                 String cols_name = metaData.getColumnName(i+1);  
@@ -208,7 +208,7 @@ public class contextDB {
                     cols_value = "";  
                 }  
                 Field field = cls.getDeclaredField(cols_name);  
-                field.setAccessible(true); //´ò¿ªjavabeanµÄ·ÃÎÊÈ¨ÏŞ  
+                field.setAccessible(true); //æ‰“å¼€javabeançš„è®¿é—®æƒé™  
                 field.set(resultObject, cols_value);  
             }  
             list.add(resultObject);  
@@ -217,7 +217,7 @@ public class contextDB {
     }  
   
     /** 
-     * ÊÍ·ÅÊı¾İ¿â½á¹û¼¯
+     * é‡Šæ”¾æ•°æ®åº“ç»“æœé›†
      */  
     public void releaseResultSet(){  
         if(resultSet != null){  
@@ -230,7 +230,7 @@ public class contextDB {
     } 
     
     /** 
-     * ÊÍ·ÅÊı¾İ¿âÖ´ĞĞSQL
+     * é‡Šæ”¾æ•°æ®åº“æ‰§è¡ŒSQL
      */  
     public void releasePstmt(){  
         if(pstmt != null){  
@@ -243,7 +243,7 @@ public class contextDB {
     }
     
     /** 
-     * ÊÍ·ÅÊı¾İ¿âÁ¬½Ó 
+     * é‡Šæ”¾æ•°æ®åº“è¿æ¥ 
      */  
     public void releaseConn(){  
         if(resultSet != null){  

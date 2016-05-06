@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * ¼ì²âÓÃ»§µÄÒ»Ğ©·½·¨
+ * æ£€æµ‹ç”¨æˆ·çš„ä¸€äº›æ–¹æ³•
  * @author  	: allen
  * @Version 	: 1.00
- * @Date    	: 2016-1-21 ÉÏÎç09:55:19 
+ * @Date    	: 2016-1-21 ä¸Šåˆ09:55:19 
  */
 public class UserAgent {
 	
-	// \b ÊÇµ¥´Ê±ß½ç(Á¬×ÅµÄÁ½¸ö(×ÖÄ¸×Ö·û Óë ·Ç×ÖÄ¸×Ö·û) Ö®¼äµÄÂß¼­ÉÏµÄ¼ä¸ô),  
-	// ×Ö·û´®ÔÚ±àÒëÊ±»á±»×ªÂëÒ»´Î,ËùÒÔÊÇ "\\b"  
-	// \B ÊÇµ¥´ÊÄÚ²¿Âß¼­¼ä¸ô(Á¬×ÅµÄÁ½¸ö×ÖÄ¸×Ö·ûÖ®¼äµÄÂß¼­ÉÏµÄ¼ä¸ô)  
+	// \b æ˜¯å•è¯è¾¹ç•Œ(è¿ç€çš„ä¸¤ä¸ª(å­—æ¯å­—ç¬¦ ä¸ éå­—æ¯å­—ç¬¦) ä¹‹é—´çš„é€»è¾‘ä¸Šçš„é—´éš”),  
+	// å­—ç¬¦ä¸²åœ¨ç¼–è¯‘æ—¶ä¼šè¢«è½¬ç ä¸€æ¬¡,æ‰€ä»¥æ˜¯ "\\b"  
+	// \B æ˜¯å•è¯å†…éƒ¨é€»è¾‘é—´éš”(è¿ç€çš„ä¸¤ä¸ªå­—æ¯å­—ç¬¦ä¹‹é—´çš„é€»è¾‘ä¸Šçš„é—´éš”)  
 	static String phoneReg = "\\b(ip(hone|od)|android|opera m(ob|in)i"  
 	        +"|windows (phone|ce)|blackberry"  
 	        +"|s(ymbian|eries60|amsung)|p(laybook|alm|rofile/midp"  
@@ -31,7 +31,7 @@ public class UserAgent {
 	static String tableReg = "\\b(ipad|tablet|(Nexus 7)|up.browser"  
 	        +"|[1-4][0-9]{2}x[1-4][0-9]{2})\\b";  
 	
-	//ÒÆ¶¯Éè±¸ÕıÔòÆ¥Åä£ºÊÖ»ú¶Ë¡¢Æ½°å
+	//ç§»åŠ¨è®¾å¤‡æ­£åˆ™åŒ¹é…ï¼šæ‰‹æœºç«¯ã€å¹³æ¿
 	static Pattern phonePat = Pattern.compile(phoneReg, Pattern.CASE_INSENSITIVE);  
 	static Pattern tablePat = Pattern.compile(tableReg, Pattern.CASE_INSENSITIVE);  
 	
@@ -41,18 +41,18 @@ public class UserAgent {
     private static final String MOBILEURL = " http://www.youdao.com/smartresult-xml/search.s?type=mobile&q=";    
 	  
 	/**
-	 * ¼ì²âÊÇ·ñÊÇÒÆ¶¯Éè±¸·ÃÎÊ
+	 * æ£€æµ‹æ˜¯å¦æ˜¯ç§»åŠ¨è®¾å¤‡è®¿é—®
 	 * 
 	 * @Title: check
-	 * @Date : 2016-1-21 ÉÏÎç09:55:19 
-	 * @param userAgent ä¯ÀÀÆ÷±êÊ¶
-	 * @return true:ÒÆ¶¯Éè±¸½ÓÈë£¬false:pc¶Ë½ÓÈë
+	 * @Date : 2016-1-21 ä¸Šåˆ09:55:19 
+	 * @param userAgent æµè§ˆå™¨æ ‡è¯†
+	 * @return true:ç§»åŠ¨è®¾å¤‡æ¥å…¥ï¼Œfalse:pcç«¯æ¥å…¥
 	 */
 	public static boolean check(String userAgent){  
 	    if(null == userAgent){  
 	        userAgent = "";  
 	    }  
-	    // Æ¥Åä  
+	    // åŒ¹é…  
 	    Matcher matcherPhone = phonePat.matcher(userAgent);  
 	    Matcher matcherTable = tablePat.matcher(userAgent);  
 	    if(matcherPhone.find() || matcherTable.find()){  
@@ -63,10 +63,10 @@ public class UserAgent {
 	}
 	
 	/** 
-	 * ¼ì²é·ÃÎÊ·½Ê½ÊÇ·ñÎªÒÆ¶¯¶Ë 
+	 * æ£€æŸ¥è®¿é—®æ–¹å¼æ˜¯å¦ä¸ºç§»åŠ¨ç«¯ 
 	 *  
 	 * @Title: checkUserAgent 
-	 * @Date : 2016-1-21 ÉÏÎç09:55:19 
+	 * @Date : 2016-1-21 ä¸Šåˆ09:55:19 
 	 * @param request 
 	 * @param response
 	 * @throws IOException  
@@ -75,18 +75,18 @@ public class UserAgent {
 	    boolean isFromMobile=false;  
 	      
 	    HttpSession session= request.getSession();  
-	   //¼ì²éÊÇ·ñÒÑ¾­¼ÇÂ¼·ÃÎÊ·½Ê½£¨ÒÆ¶¯¶Ë»òpc¶Ë£©  
+	   //æ£€æŸ¥æ˜¯å¦å·²ç»è®°å½•è®¿é—®æ–¹å¼ï¼ˆç§»åŠ¨ç«¯æˆ–pcç«¯ï¼‰  
 	    if(null==session.getAttribute("ua")){  
 	        try{  
-	            //»ñÈ¡ua£¬ÓÃÀ´ÅĞ¶ÏÊÇ·ñÎªÒÆ¶¯¶Ë·ÃÎÊ  
+	            //è·å–uaï¼Œç”¨æ¥åˆ¤æ–­æ˜¯å¦ä¸ºç§»åŠ¨ç«¯è®¿é—®  
 	            String userAgent = getUserAgent(request, response);
 	            isFromMobile=UserAgent.check(userAgent);  
-	            //ÅĞ¶ÏÊÇ·ñÎªÒÆ¶¯¶Ë·ÃÎÊ  
+	            //åˆ¤æ–­æ˜¯å¦ä¸ºç§»åŠ¨ç«¯è®¿é—®  
 	            if(isFromMobile){  
-	                System.out.println("ÒÆ¶¯¶Ë·ÃÎÊ");  
+	                System.out.println("ç§»åŠ¨ç«¯è®¿é—®");  
 	                session.setAttribute("ua","mobile");  
 	            } else {  
-	                System.out.println("pc¶Ë·ÃÎÊ");  
+	                System.out.println("pcç«¯è®¿é—®");  
 	                session.setAttribute("ua","pc");  
 	            }  
 	        }catch(Exception e){}  
@@ -98,10 +98,10 @@ public class UserAgent {
 	} 
 	
 	/** 
-	 * »ñÈ¡·ÃÎÊ·½Ê½
+	 * è·å–è®¿é—®æ–¹å¼
 	 *  
 	 * @Title: getUserAgent 
-	 * @Date: 2016-1-21 ÉÏÎç09:55:19 
+	 * @Date: 2016-1-21 ä¸Šåˆ09:55:19 
 	 * @param request 
 	 * @param response
 	 * @throws IOException  
@@ -109,7 +109,7 @@ public class UserAgent {
 	public String getUserAgent(HttpServletRequest request,HttpServletResponse response) throws IOException{  
 	    String userAgent = "";
 	    try{  
-            //»ñÈ¡ua
+            //è·å–ua
 	    	userAgent = request.getHeader( "USER-AGENT" ).toLowerCase();    
             if(null == userAgent){    
                 userAgent = "";    
@@ -146,13 +146,13 @@ public class UserAgent {
         } catch (Exception e) {    
             e.printStackTrace();    
         }    
-        String sex = address.indexOf("<gender>m</gender")>0?"ÄĞ":"Å®";    
+        String sex = address.indexOf("<gender>m</gender")>0?"ç”·":"å¥³";    
             
         address = address.substring(address.indexOf("location") + 9);    
         String birthday = address.substring(address.indexOf("birthday>")+9,address.indexOf("</bir"));    
-        birthday = birthday.substring(0,4)+"Äê"+birthday.substring(4,6)+"ÔÂ"+birthday.substring(6,8)+"ÈÕ";    
-        return "µØÖ·£º"+address.substring(0, address    
-                .indexOf("</location"))+" ĞÔ±ğ£º"+sex+" ÉúÈÕ:"+birthday;    
+        birthday = birthday.substring(0,4)+"å¹´"+birthday.substring(4,6)+"æœˆ"+birthday.substring(6,8)+"æ—¥";    
+        return "åœ°å€ï¼š"+address.substring(0, address    
+                .indexOf("</location"))+" æ€§åˆ«ï¼š"+sex+" ç”Ÿæ—¥:"+birthday;    
     }    
         
     private static String getLocationByMobile(String mobile) {    
@@ -166,7 +166,7 @@ public class UserAgent {
             e.printStackTrace();    
         }    
         address = address.substring(address.indexOf("location") + 9);    
-        return "¸ÃºÅÂë¹éÊôµØÎª£º"+address.substring(0, address    
+        return "è¯¥å·ç å½’å±åœ°ä¸ºï¼š"+address.substring(0, address    
                 .indexOf("</location"));    
     }    
     private static String search(URL url) throws IOException {    
@@ -181,7 +181,7 @@ public class UserAgent {
             outStream.write(buff, 0, rc);    
         }    
         byte[] b = outStream.toByteArray();    
-        //¹Ø±Õ    
+        //å…³é—­    
         outStream.close();    
         is.close();    
         connect.disconnect();    

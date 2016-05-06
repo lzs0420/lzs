@@ -46,7 +46,7 @@ public class MyServlet extends HttpServlet {
         String servletPath=request.getServletPath();
         String pathInfo=request.getPathInfo()==null?"":request.getPathInfo();
         String path=servletPath+pathInfo;
-        //·ÃÎÊsbÒ³Ãæ£¬ÈËÊı+1
+        //è®¿é—®sbé¡µé¢ï¼Œäººæ•°+1
         if(path.startsWith("/sb")){
             String sbnum = "1";
 			try {
